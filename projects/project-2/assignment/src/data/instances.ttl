@@ -1,0 +1,174 @@
+@prefix : <http://example.org/OntologyTradecraft/instances/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix http: <http://www.w3.org/2011/http#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p2o: <http://example.org/OntologyTradecraft/core/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/OntologyTradecraft/instances/> a owl:Ontology ;
+    owl:imports <http://example.org/OntologyTradecraft/core/> ;
+    rdfs:comment "This ontology contains instances for Ontology Tradecraft Project 2."@en ;
+    rdfs:label "Ontology Tradecraft Project 2 Instances"@en .
+
+#=======================
+# Individuals
+#=======================
+
+## Task 1
+:AirbusA320NSpecification a owl:NamedIndividual ,
+    [ a owl:Restriction ;
+      owl:onProperty cco:ont00001808 ;
+      owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet 
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000178 ;
+            owl:cardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass cco:ont00000533 #Jet Engine
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasManufacturer ;
+            owl:hasValue :Airbus
+        ]
+        
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasLengthInFeet ;
+            owl:hasValue "123.3"^^xsd:decimal
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasModelBADA ;
+            owl:hasValue "Airbus A320-271N"^^xsd:string
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasModelFAA ;
+            owl:hasValue "Airbus A320 NEO"^^xsd:string
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasTailHeightAtOEWInFeet ;
+            owl:hasValue "39.6"^^xsd:decimal
+        ]
+        ) ;
+            a owl:Class
+                    ]
+    ] ;
+    rdfs:label "Airbus A320 NEO"@en ;
+    skos:definition "The individual jet specification for an Airbus A320 Neo."@en .
+
+:Airbus a p2o:AircraftManufacturer ;
+    rdfs:label "Airbus"@en ;
+    skos:definition "A European aerospace corporation and manufacturer of aircraft and spacecraft in commercial, private, and military domains."@en .
+    
+## Task 2
+
+:AirbusA321Specification a owl:NamedIndividual ,
+    [ a owl:Restriction ;
+        owl:onProperty cco:ont00001942 ;
+        owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet
+            [ a owl:Restriction ;
+                owl:onProperty p2o:hasApproachSpeedMaximumInKnots ;
+                owl:hasValue "142"^^xsd:nonNegativeInteger 
+                ]
+        ) ;
+        ]
+    ] ;
+    rdfs:label "Airbus A321-111 Specification"@en ;
+    skos:definition "The individual jet specification for an Airbus A321."@en .
+
+:TestProcess01 a p2o:ActOfAircraftProcessing .
+
+:Aircraft01 a p2o:Jet ;
+    cco:ont00001920 :AirbusA321Specification .
+
+:TemporalRegion01 a obo:BFO_0000008 ;
+    obo:BFO_0000063 :TemporalRegion02 .
+
+:TemporalRegion02 a obo:BFO_0000008 ;
+    obo:BFO_0000063 :TemporalRegion03 .
+:TemporalRegion03 a obo:BFO_0000008 ;
+    obo:BFO_0000063 :TemporalRegion04 .
+:TemporalRegion04 a obo:BFO_0000008 ;
+    obo:BFO_0000063 :TemporalRegion05 .
+:TemporalRegion05 a obo:BFO_0000008 .
+
+:ApproachSpeed01 a cco:ont00000830 .
+:ApproachSpeed02 a cco:ont00000830 .
+:ApproachSpeed03 a cco:ont00000830 .
+:ApproachSpeed04 a cco:ont00000830 .
+:ApproachSpeed05 a cco:ont00000830 .
+
+:ApproachSpeedField01 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "137"^^xsd:nonNegativeInteger .
+
+:ApproachSpeedField02 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "140"^^xsd:nonNegativeInteger .
+:ApproachSpeedField03 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "139"^^xsd:nonNegativeInteger .
+:ApproachSpeedField04 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "143"^^xsd:nonNegativeInteger .
+:ApproachSpeedField05 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "136"^^xsd:nonNegativeInteger .
+:TestReport01 a cco:ont00000624 ;
+    obo:BFO_0000178 :ApproachSpeedField01 ;
+    obo:BFO_0000178 :ApproachSpeedField02 ;
+    obo:BFO_0000178 :ApproachSpeedField03 ;
+    obo:BFO_0000178 :ApproachSpeedField04 ;
+    obo:BFO_0000178 :ApproachSpeedField05 .
+
+:ApproachSpeedMeasurement01 a cco:ont00001163 ;
+    cco:ont00001966 :ApproachSpeed01 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement02 a cco:ont00001163 ;
+    cco:ont00001966 :ApproachSpeed02 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement03 a cco:ont00001163 ;
+    cco:ont00001966 :ApproachSpeed03 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement04 a cco:ont00001163 ;
+    cco:ont00001966 :ApproachSpeed04 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement05 a cco:ont00001163 ;
+    cco:ont00001966 :ApproachSpeed05 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:Approach01 a p2o:AircraftApproach ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion01 ;
+    obo:BFO_0000117 :ApproachSpeed01 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach02 a p2o:AircraftApproach ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion02 ;
+    obo:BFO_0000117 :ApproachSpeed02 ;
+    obo:BFO_0000057 :Aircraft01 .
+:Approach03 a p2o:AircraftApproach ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion03 ;
+    obo:BFO_0000117 :ApproachSpeed03 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach04 a p2o:AircraftApproach ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion04 ;
+    obo:BFO_0000117 :ApproachSpeed04 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach05 a p2o:AircraftApproach ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion05 ;
+    obo:BFO_0000117 :ApproachSpeed05 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+## Task 4
+

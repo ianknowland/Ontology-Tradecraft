@@ -1,0 +1,407 @@
+@prefix : <http://example.org/OntologyTradecraft/core/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/OntologyTradecraft/core/> a owl:Ontology ;
+    owl:imports <https://www.commoncoreontologies.org/CommonCoreOntologiesMerged> ;
+    owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ;
+    rdfs:comment "This ontology is a core ontology for Ontology Tradecraft Project 2." ;
+    rdfs:label "Ontology Tradecraft Aircraft Core Ontology" .
+
+#=======================
+# Classes
+#=======================
+
+<http://example.org/OntologyTradecraft/core/AerospaceEngineerRole> a owl:Class ;
+    rdfs:label "Aerospace Engineer Role"@en ;
+    skos:definition "A role that inheres in an agent and is realized in an Act of Aircraft Processing."@en ;
+    rdfs:subClassOf obo:BFO_0000023 . #role
+
+<http://example.org/OntologyTradecraft/core/ActOfAircraftProcessing> a owl:Class ;
+    rdfs:label "Act of Aircraft Processing"@en ;
+    skos:definition "An Act of Artifact Processing in which some agent designs, constructs, or tests an aircraft, missile, or spacecraft as prescribed by some Artifact Design."@en ;
+    rdfs:subClassOf cco:ont00000908 . #Act of Artifact Processing
+
+<http://example.org/OntologyTradecraft/core/InternationalCivilAviationOrganizationCode> a owl:Class ;
+    rdfs:label "International Civil Aviation Organization Code"@en ;
+    skos:altLabel "ICAO Code"@en ;
+    skos:definition "A Code Identifier that designates an airport, airline, or aircraft type in accordance with the standards set by the International Civil Aviation Organization (ICAO)."@en ;
+    rdfs:subClassOf cco:ont00000077 . #Code Identifier
+
+<http://example.org/OntologyTradecraft/core/FederalAviationAdministrationDesignator> a owl:Class ;
+    rdfs:label "Federal Aviation Administration Designator"@en ;
+    skos:altLabel "FAA Designator"@en ;
+    skos:definition "A Code Identifier that designates an aircraft model in accordance with the standards set by the Federal Aviation Administration (FAA)."@en ;
+    rdfs:subClassOf cco:ont00000077 . #Code Identifier
+
+<http://example.org/OntologyTradecraft/core/ManufacturerRole> a owl:Class ;
+    rdfs:label "Manufacturer Role"@en ;
+    skos:definition "A role that inheres in an agent and is realized in an Act of Manufacturing."@en ;
+    rdfs:subClassOf obo:BFO_0000023 . #role
+    
+<http://example.org/OntologyTradecraft/core/AircraftSpecification> a owl:Class ;
+    rdfs:label "Aircraft Specification"@en ;
+    skos:definition "An Artifact Design that prescribes the design and performance characteristics of an aircraft."@en ;
+    rdfs:subClassOf cco:ont00000319 . #Artifact Design
+<http://example.org/OntologyTradecraft/core/JetSpecification> a owl:Class ;
+    rdfs:label "Jet Specification"@en ;
+    skos:definition "An Aircraft Specification that prescribes the design and performance characteristics of a jet."@en ;
+    rdfs:subClassOf :AircraftSpecification .
+
+<http://example.org/OntologyTradecraft/core/Jet> a owl:Class ;
+    rdfs:label "Jet"@en ;
+    skos:definition "A Fixed Wing Aircraft that is powered by one or more jet engines."@en ;
+    rdfs:subClassOf :FixedWingAircraft . 
+
+<http://example.org/OntologyTradecraft/core/AircraftApproachCategory> a owl:Class ;
+    rdfs:label "Aircraft Approach Category"@en ;
+    skos:definition "A Nominal Measurement Information Content Entity that categorizes an aircraft according to its approach speed."@en ;
+    rdfs:subClassOf cco:ont00000293 . #Nominal Measurement Information Content Entity
+
+<http://example.org/OntologyTradecraft/core/AircraftDesignGroup> a owl:Class ;
+    rdfs:label "Aircraft Design Group"@en ;
+    skos:definition "A Nominal Measurement Information Content Entity that categorizes an aircraft according to its combination of Tail Height and Wingspan."@en ;
+    rdfs:subClassOf cco:ont00000293 . #Nominal Measurement Information Content Entity
+
+<http://example.org/OntologyTradecraft/core/ActOfAircraftOperation> a owl:Class ;
+    rdfs:label "Act of Aircraft Operation"@en ;
+    skos:definition "An Act of Vehicle Use in which an aircraft is operated for a specific purpose, such as takeoff, landing, or taxiing."@en ;
+    rdfs:subClassOf cco:ont00000515 . #Act of Vehicle Use
+<http://example.org/OntologyTradecraft/core/AircraftApproach> a owl:Class ;
+    rdfs:label "Aircraft Approach"@en ;
+    skos:definition "An Act of Aircraft Operation in which an aircraft approaches a runway for landing."@en ;
+    rdfs:subClassOf :ActOfAircraftOperation .
+
+<http://example.org/OntologyTradecraft/core/ActOfAircraftProcessing> a owl:Class ;
+    rdfs:label "Act of Aircraft Processing"@en ;
+    skos:definition "An Act of Artifact Processing in which an aircraft is designed, constructed, or tested."@en ;
+    rdfs:subClassOf cco:ont00000908 . #Act of Artifact Processing
+
+<http://example.org/OntologyTradecraft/core/ActOfAircraftDesign> a owl:Class ;
+    rdfs:label "Act of Aircraft Design"@en ;
+    skos:definition "An Act of Aircraft Processing in which an aircraft is designed according to an Aircraft Specification."@en ;
+    rdfs:subClassOf :ActOfAircraftProcessing ;
+    owl:equivalentClass [ 
+        a owl:Class ;
+        owl:intersectionOf ( 
+            :ActOfAircraftProcessing
+            [ 
+                a owl:Restriction ;
+                owl:onProperty cco:ont00001920 ; #prescribed by
+                owl:someValuesFrom :AircraftSpecification 
+            ] 
+        ) 
+    ] .
+
+<http://example.org/OntologyTradecraft/core/AircraftManufacturer> a owl:Class ;
+    rdfs:label "Aircraft Manufacturer"@en ;
+    skos:definition "A Commercial Organization that bears some Manufacturer Role and is agent in some Act of Aircraft Processing."@en ;
+    rdfs:subClassOf cco:ont00000443 ; #Commercial Organization
+    owl:equivalentClass [ 
+        a owl:Class ;
+        owl:intersectionOf ( 
+            cco:ont00000443
+            [ 
+                a owl:Restriction ;
+                owl:onProperty obo:BFO_0000196 ; #bearer of
+                owl:someValuesFrom :ManufacturerRole 
+            ]
+            [ 
+                a owl:Restriction ;
+                owl:onProperty cco:ont00001787 ; #agent in
+                owl:someValuesFrom :ActOfAircraftProcessing 
+            ]
+        ) 
+    ] .
+
+<http://example.org/OntologyTradecraft/core/FixedWingAircraft> a owl:Class ;
+    rdfs:label "Fixed Wing Aircraft"@en ;
+    skos:altLabel "Fixed Wing"@en ;
+    skos:definition "An Aircraft that generates lift primarily through the use of fixed wings."@en ;
+    rdfs:subClassOf cco:ont00001043 . #Aircraft
+
+<http://example.org/OntologyTradecraft/core/AdapabilityEvaluation> a owl:Class ;
+    rdfs:label "Adaptability Evaluation"@en ;
+    skos:definition "An Act of Appraisal in which some material or equipment used in aircraft design or manufacturing is evaluated by some Agent." ;
+    rdfs:subClassOf cco:ont00000636 .
+
+<http://example.org/OntologyTradecraft/core/AerospaceEngineerRole> a owl:Class ;
+    skos:definition "An Occupation Role that inheres in an Agent who is responsible for designing, constructing, and testing aircraft, missiles, and spacecraft." ;
+    rdfs:subClassOf cco:ont00000984 .
+
+<http://example.org/OntologyTradecraft/core/AerospaceOperationsTechnologistRole> a owl:Class ;
+    skos:definition "An Aerospace Engineer Role that inheres in an Agent who is responsible for operating instruments and equipment aboard air and space vehicles." ;
+    rdfs:subClassOf :AerospaceEngineerRole .
+
+<http://example.org/OntologyTradecraft/core/AerospaceTechnicianRole> a owl:Class ;
+    skos:defintion "An Aerospace Engineer Role that inheres in an Agent who is responsible for installing, adjusting and maintaining instruments and equipment aboard air and space vehicles." ;
+    rdfs:subClassOf :AerospaceEngineerRole .
+
+
+#=======================
+# Object Properties
+#=======================
+<http://example.org/OntologyTradecraft/core/hasManufacturer> a owl:ObjectProperty ;
+    rdfs:label "has manufacturer"@en ;
+    skos:definition "An object property that relates an aircraft to its manufacturer, which is the agent responsible for designing and producing the aircraft."@en ;
+    rdfs:domain :AircraftSpecification ;
+    rdfs:range :ManufacturerRole .
+
+
+
+#=======================
+# Datatype Properties
+#=======================
+<http://example.org/OntologyTradecraft/core/hasLengthInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has Length Ft"@en ;
+    skos:definition "A datatype property that relates an aircraft to its length value in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasTailHeightInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has Tail Height Ft"@en ;
+    skos:definition "A datatype property that relates an aircraft to its tail height value in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasICAOCode> a owl:DatatypeProperty ;
+    rdfs:label "has ICAO code"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding International Civil Aviation Organization (ICAO) code, which is a unique identifier for the aircraft type."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:string .
+
+<http://example.org/OntologyTradecraft/core/hasModelBADA> a owl:DatatypeProperty ;
+    rdfs:label "has Model BADA"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding BADA model name, which is a performance model used for aircraft performance analysis."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:string .
+
+<http://example.org/OntologyTradecraft/core/hasModelFAA> a owl:DatatypeProperty ;
+    rdfs:label "has Model FAA"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding FAA model name, which is a performance model used for aircraft performance analysis."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:string .
+
+<http://example.org/OntologyTradecraft/core/hasFAADesignator> a owl:DatatypeProperty ;
+    rdfs:label "has FAA designator"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding FAA designator, which is a unique identifier for the aircraft type."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:string .
+
+<http://example.org/OntologyTradecraft/core/hasAACMinimum> a owl:DatatypeProperty ;
+    rdfs:label "has AAC minimum"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding minimum Aircraft Approach Category (AAC) value."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasAACMaximum> a owl:DatatypeProperty ;
+    rdfs:label "has AAC maximum" ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding maximum Aircraft Approach Category (AAC) value." ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasTailHeightAtOEWInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has tail height at OEW in feet"@en ;
+    skos:prefLabel "has Tail Height at OEW Ft"@en ;
+    skos:definition "A datatype property that relates an aircraft to its Tail Height value at Operating Empty Weight (OEW) in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasWheelbaseInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has wheelbase"@en ;
+    skos:definition "A datatype property that relates an aircraft to its Wheelbase value in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasWingspanInFeetWithoutWingletsSharklets> a owl:DatatypeProperty ;
+    rdfs:label "has wingspan without winglets/sharklets"@en ;
+    skos:definition "A datatype property that relates an aircraft to its Wingspan value when not equipped with winglets or sharklets."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal   .
+
+<http://example.org/OntologyTradecraft/core/hasWingspanInFeetWithWingletsSharklets> a owl:DatatypeProperty ;
+    rdfs:label "has wingspan with winglets/sharklets"@en ;
+    skos:definition "A datatype property that relates an aircraft to its Wingspan value when equipped with winglets or sharklets."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasApproachSpeedInKnots> a owl:DatatypeProperty ;
+    rdfs:label "has approach speed in knots"@en ;
+    skos:definition "A datatype property that relates an aircraft to its approach speed value in knots."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer   .
+
+<http://example.org/OntologyTradecraft/core/hasApproachSpeedMinimumInKnots> a owl:DatatypeProperty ;
+    rdfs:label "has approach speed minimum in knots"@en ;
+    skos:definition "A datatype property that relates an aircraft to its minimum approach speed value in knots."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer .
+
+<http://example.org/OntologyTradecraft/core/hasApproachSpeedMaximumInKnots> a owl:DatatypeProperty ;
+    rdfs:label "has approach speed maximum in knots"@en ;
+    skos:definition "A datatype property that relates an aircraft to its maximum approach speed value in knots."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer .
+
+<http://example.org/OntologyTradecraft/core/hasMainGearWidthInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has main gear width"@en ;
+    skos:definition "A datatype property that relates an aircraft to its main gear width value in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasCockpitToMainGearDistanceInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has cockpit to main gear distance"@en ;
+    skos:definition "A datatype property that relates an aircraft to the distance between the cockpit and the main gear in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal  .
+
+<http://example.org/OntologyTradecraft/core/hasMaximumTakeoffGrossWeightInPounds> a owl:DatatypeProperty ;
+    rdfs:label "has maximum takeoff gross weight"@en ;
+    skos:definition "A datatype property that relates an aircraft to its maximum takeoff gross weight value in pounds."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer .
+
+<http://example.org/OntologyTradecraft/core/hasMainGearConfiguration> a owl:DatatypeProperty ;
+    rdfs:label "has main gear configuration"@en ;
+    skos:definition "A datatype property that relates an aircraft to its main gear configuration, which describes the arrangement of the main landing gear."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:string .
+
+<http://example.org/OntologyTradecraft/core/hasICAOWeightTurbulenceCategory> a owl:DatatypeProperty ;
+    rdfs:label "has ICAO weight turbulence category"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding ICAO weight turbulence category, which is used to determine the wake turbulence separation requirements for aircraft."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("Super" "Heavy" "Medium" "Light") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasAircraftDesignGroup> a owl:DatatypeProperty ;
+    rdfs:label "has aircraft design group"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding Aircraft Design Group (ADG) value, which categorizes the aircraft based on its combination of Tail Height and Wingspan."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("I" "II" "III" "IV" "V") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasParkingAreaInSquareFeet> a owl:DatatypeProperty ;
+    rdfs:label "has parking area in square feet"@en ;
+    skos:definition "A datatype property that relates an aircraft to its required parking area in square feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasFAAWeightCategory> a owl:DatatypeProperty ;
+    rdfs:label "has FAA weight"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding FAA weight category."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("Super" "Heavy" "Large" "Small" "Small+") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasConsolidatedWeightTurbulenceCategory> a owl:DatatypeProperty ;
+    rdfs:label "has consolidated weight turbulence category"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding consolidated weight turbulence category."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E" "F" "G" "H" "I") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasOneHalfWakeCategory> a owl:DatatypeProperty ;
+    rdfs:label "has one-half wake category"@en ;
+    skos:definition "A datatype property that relates an aircraft to its RECAT (Recategorization) 1.5 wake category."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E" "F") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasTwoWakeCategoryAppendixA> a owl:DatatypeProperty ;
+    rdfs:label "has two wake category appendix A"@en ;
+    skos:definition "A datatype property that relates an aircraft to its RECAT (Recategorization) 2 wake category (Appendix A)."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E" "F" "G") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasTwoWakeCategoryAppendixB> a owl:DatatypeProperty ;
+    rdfs:label "has two wake category appendix B"@en ;
+    skos:definition "A datatype property that relates an aircraft to its RECAT (Recategorization) 2 wake category (Appendix B)."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E" "F" "G") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasRotorDiameterInFeet> a owl:DatatypeProperty ;
+    rdfs:label "has rotor diameter in feet"@en ;
+    skos:definition "A datatype property that relates an aircraft to its rotor diameter value in feet."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:decimal .
+
+<http://example.org/OntologyTradecraft/core/hasSRSCategory> a owl:DatatypeProperty ;
+    rdfs:label "has SRS category"@en ;
+    skos:definition "A datatype property that relates an aircraft to its same runway separation category."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("I" "II" "III") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasLAHSOGroup> a owl:DatatypeProperty ;
+    rdfs:label "has LAHSO group"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding LAHSO (Land and Hold Short Operations) group."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("1" "2" "3" "4" "5" "6" "7" "8" "9" "10") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/onFAARegistry> a owl:DatatypeProperty ;
+    rdfs:label "on FAA registry"@en ;
+    skos:definition "A datatype property that relates an aircraft to a boolean value indicating whether it is listed on the FAA registry."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:boolean .
+
+<http://example.org/OntologyTradecraft/core/hasRegistrationCount> a owl:DatatypeProperty ;
+    rdfs:label "has registration count"@en ;
+    skos:definition "A datatype property that relates an aircraft to the number of times it has been registered based on ICAO code and submodel."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer .
+
+<http://example.org/OntologyTradecraft/core/hasNumberOfTMFSOperationsInFY24> a owl:DatatypeProperty ;
+    rdfs:label "has number of TMFS operations in FY24"@en ;
+    skos:definition "A datatype property that relates an aircraft to the number of TMFS (Terminal Maneuvering Flight System) operations performed by instances of that aircraft in Fiscal Year 2024."@en ;
+    rdfs:domain :AircraftSpecification ;
+    rdfs:range xsd:integer .
+
+<http://example.org/OntologyTradecraft/core/hasLastUpdate> a owl:DatatypeProperty ;
+    rdfs:label "has last update"@en ;
+    skos:definition "A datatype property that relates an aircraft specification to the date of its last update."@en ;
+    rdfs:domain :AircraftSpecification ;
+    rdfs:range xsd:date .
+
+
+
+#=======================
+# Annotation Properties
+#=======================
+
+<http://example.org/OntologyTradecraft/core/Remarks> a owl:AnnotationProperty ;
+    rdfs:label "remarks"@en ;
+    skos:definition "An annotation property that provides additional information or comments about an entity."@en ;
+    rdfs:domain obo:BFO_0000001 ; #Entity
+    rdfs:range xsd:string .
