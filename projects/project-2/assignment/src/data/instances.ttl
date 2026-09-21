@@ -1,682 +1,442 @@
 @prefix : <http://example.org/OntologyTradecraft/instances/> .
-@prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix p2o: <http://example.org/OntologyTradecraft/core/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix http: <http://www.w3.org/2011/http#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@base <http://example.org/OntologyTradecraft/instances/> .
-
-<http://example.org/OntologyTradecraft/instances/> rdf:type owl:Ontology ;
-                                                    owl:imports p2o: ;
-                                                    rdfs:comment "This ontology contains instances for Ontology Tradecraft Project 2."@en ;
-                                                    rdfs:label "Ontology Tradecraft Project 2 Instances"@en .
-
-#################################################################
-#    Annotation properties
-#################################################################
-
-###  http://purl.obolibrary.org/obo/BFO_0000057
-obo:BFO_0000057 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000063
-obo:BFO_0000063 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000084
-obo:BFO_0000084 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000117
-obo:BFO_0000117 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000132
-obo:BFO_0000132 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000176
-obo:BFO_0000176 rdf:type owl:AnnotationProperty .
-
-
-###  http://purl.obolibrary.org/obo/BFO_0000199
-obo:BFO_0000199 rdf:type owl:AnnotationProperty .
-
-
-###  http://www.w3.org/2000/01/rdf-schema#definition
-rdfs:definition rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001765
-cco:ont00001765 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001769
-cco:ont00001769 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001801
-cco:ont00001801 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001832
-cco:ont00001832 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001841
-cco:ont00001841 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001863
-cco:ont00001863 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001920
-cco:ont00001920 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001966
-cco:ont00001966 rdf:type owl:AnnotationProperty .
-
-
-###  https://www.commoncoreontologies.org/ont00001986
-cco:ont00001986 rdf:type owl:AnnotationProperty .
-
-
-#################################################################
-#    Individuals
-#################################################################
-
-###  http://example.org/OntologyTradecraft/core/AerospaceEngineerRole
-p2o:AerospaceEngineerRole rdf:type owl:NamedIndividual .
-
-
-###  http://example.org/OntologyTradecraft/instances/AerospaceEngineerPopulation
-:AerospaceEngineerPopulation rdf:type owl:NamedIndividual ,
-                                      cco:ont00000914 ;
-                             obo:BFO_0000176 :USPopulation ;
-                             rdfs:label "Aerospace Engineer Population"@en ;
-                             skos:definition "The group of people that constitution the portion of the United States population that are Aerospace Engineers at any given time."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Airbus
-:Airbus rdf:type owl:NamedIndividual ,
-                 p2o:AircraftManufacturer ;
-        rdfs:label "Airbus"@en ;
-        skos:definition "A European aerospace corporation and manufacturer of aircraft and spacecraft in commercial, private, and military domains."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA320NSpecification
-:AirbusA320NSpecification rdf:type owl:NamedIndividual ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty cco:ont00001808 ;
-                                     owl:allValuesFrom [ owl:intersectionOf ( p2o:FixedWing
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty p2o:hasManufacturer ;
-                                                                                owl:hasValue :Airbus
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty obo:BFO_0000178 ;
-                                                                                owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger ;
-                                                                                owl:onClass cco:ont00000533
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty p2o:hasLengthInFeet ;
-                                                                                owl:hasValue 123.3
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty p2o:hasModelBADA ;
-                                                                                owl:hasValue "Airbus A320-271N"
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty p2o:hasModelFAA ;
-                                                                                owl:hasValue "Airbus A320 NEO"
-                                                                              ]
-                                                                              [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty p2o:hasTailHeightInFeet ;
-                                                                                owl:hasValue 39.6
-                                                                              ]
-                                                                            ) ;
-                                                         rdf:type owl:Class
-                                                       ]
-                                   ] ;
-                          rdfs:label "Airbus A320 NEO"@en ;
-                          skos:definition "The individual jet specification for an Airbus A320 Neo."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA320N_01
-:AirbusA320N_01 rdf:type owl:NamedIndividual ,
-                         p2o:FixedWing ;
-                p2o:hasManufacturer :Airbus ;
-                obo:BFO_0000178 :AirbusA320N_JetEngine_01 ,
-                                :AirbusA320N_JetEngine_02 ;
-                p2o:hasAAC "C" ;
-                p2o:hasAircraftDesignGroup "III" ;
-                p2o:hasApproachSpeedInKnots 137 ;
-                p2o:hasCockpitToMainGearDistanceInFeet 50.2 ;
-                p2o:hasConsolidatedWeightTurbulenceCategory "F" ;
-                p2o:hasFAADesignator "A20N" ;
-                p2o:hasFAAWeightCategory "Large" ;
-                p2o:hasICAOCode "A20N" ;
-                p2o:hasICAOWeightTurbulenceCategory "Medium" ;
-                p2o:hasLAHSOGroup "7" ;
-                p2o:hasLengthInFeet 123.3 ;
-                p2o:hasMainGearConfiguration "D" ;
-                p2o:hasMainGearWidthInFeet 29.4 ;
-                p2o:hasMaximumAllowableLandingWeightInPounds 148591 ;
-                p2o:hasMaximumTakeoffGrossWeightInPounds 174165 ;
-                p2o:hasModelBADA "Airbus A320-271 N" ;
-                p2o:hasModelFAA "Airbus A320 Neo" ;
-                p2o:hasNumberOfTMFSOperationsInFY24 540276 ;
-                p2o:hasOneHalfWakeCategory "F" ;
-                p2o:hasParkingAreaInSquareFeet 16358.3 ;
-                p2o:hasRegistrationCount 147 ;
-                p2o:hasSRSCategory "III" ;
-                p2o:hasTailHeightInFeet 39.6 ;
-                p2o:hasTaxiwayDesignGroup "3" ;
-                p2o:hasTwoWakeCategoryAppendixA "D" ;
-                p2o:hasTwoWakeCategoryAppendixB "D" ;
-                p2o:hasWheelbaseInFeet 41.5 ;
-                p2o:hasWingspanInFeetWithWingletsSharklets 117.5 ;
-                p2o:onFAARegistry "true"^^xsd:boolean ;
-                p2o:Remarks "AAC validated by Flight Standardization Board (FSB) report."@en ;
-                rdfs:label "Airbus A320 Neo 01"@en ;
-                skos:definition "An instance of the Airbus A320 Neo that matches the artifact design."@en ;
-                cco:ont00001801 :AirbusA320NSpecification .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA320N_JetEngine_01
-:AirbusA320N_JetEngine_01 rdf:type owl:NamedIndividual ,
-                                   cco:ont00000533 ;
-                          rdfs:label "Jet Engine 01"@en ;
-                          skos:definition "The first jet engine attached to Airbus A320 Neo 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA320N_JetEngine_02
-:AirbusA320N_JetEngine_02 rdf:type owl:NamedIndividual ,
-                                   cco:ont00000533 ;
-                          rdfs:label "Jet Engine 02"@en ;
-                          skos:definition "The second jet engine attached to Airbus A320 Neo 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA321SpecIBE
-:AirbusA321SpecIBE rdf:type owl:NamedIndividual ,
-                            cco:ont00001298 ;
-                   rdfs:label "Airbus A321 Specification IBE"@en ;
-                   skos:definition "A material copy of the Airbus A321 Specification."@en ;
-                   cco:ont00001769 142 ;
-                   cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/AirbusA321Specification
-:AirbusA321Specification rdf:type owl:NamedIndividual ,
-                                  [ rdf:type owl:Restriction ;
-                                    owl:onProperty cco:ont00001942 ;
-                                    owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet
-                                                                             [ rdf:type owl:Restriction ;
-                                                                               owl:onProperty p2o:hasApproachSpeedMaximumInKnots ;
-                                                                               owl:hasValue "142"^^xsd:nonNegativeInteger
-                                                                             ]
-                                                                           ) ;
-                                                        rdf:type owl:Class
-                                                      ]
-                                  ] ;
-                         obo:BFO_0000084 :AirbusA321SpecIBE ;
-                         rdfs:label "Airbus A321-111"@en ;
-                         skos:definition "The individual jet specification for an Airbus A321."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Aircraft01
-:Aircraft01 rdf:type owl:NamedIndividual ,
-                     p2o:Jet ;
-            rdfs:label "Aircraft 01"@en ;
-            skos:definition "The Airbus A321 used in Test Process 01."@en ;
-            cco:ont00001920 :AirbusA321Specification .
-
-
-###  http://example.org/OntologyTradecraft/instances/Approach01
-:Approach01 rdf:type owl:NamedIndividual ,
-                     p2o:AircraftApproach ;
-            obo:BFO_0000057 :Aircraft01 ;
-            obo:BFO_0000117 :ApproachSpeed01 ;
-            obo:BFO_0000132 :TestProcess01 ;
-            obo:BFO_0000199 :TemporalRegion01 ;
-            rdfs:label "Approach 01"@en ;
-            skos:definition "The first approach in Test Process 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Approach02
-:Approach02 rdf:type owl:NamedIndividual ,
-                     p2o:AircraftApproach ;
-            obo:BFO_0000057 :Aircraft01 ;
-            obo:BFO_0000117 :ApproachSpeed02 ;
-            obo:BFO_0000132 :TestProcess01 ;
-            obo:BFO_0000199 :TemporalRegion02 ;
-            rdfs:label "Approach 02"@en ;
-            skos:definition "The second approach in Test Process 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Approach03
-:Approach03 rdf:type owl:NamedIndividual ,
-                     p2o:AircraftApproach ;
-            obo:BFO_0000057 :Aircraft01 ;
-            obo:BFO_0000117 :ApproachSpeed03 ;
-            obo:BFO_0000132 :TestProcess01 ;
-            obo:BFO_0000199 :TemporalRegion03 ;
-            rdfs:label "Approach 03"@en ;
-            skos:definition "The third approach in Test Process 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Approach04
-:Approach04 rdf:type owl:NamedIndividual ,
-                     p2o:AircraftApproach ;
-            obo:BFO_0000057 :Aircraft01 ;
-            obo:BFO_0000117 :ApproachSpeed04 ;
-            obo:BFO_0000132 :TestProcess01 ;
-            obo:BFO_0000199 :TemporalRegion04 ;
-            rdfs:label "Approach 04"@en ;
-            skos:definition "The fourth approach in Test Process 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/Approach05
-:Approach05 rdf:type owl:NamedIndividual ,
-                     p2o:AircraftApproach ;
-            obo:BFO_0000057 :Aircraft01 ;
-            obo:BFO_0000117 :ApproachSpeed05 ;
-            obo:BFO_0000132 :TestProcess01 ;
-            obo:BFO_0000199 :TemporalRegion05 ;
-            rdfs:label "Approach 05"@en ;
-            skos:definition "The fifth approach in Test Process 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeed01
-:ApproachSpeed01 rdf:type owl:NamedIndividual ,
-                          cco:ont00000830 ;
-                 rdfs:label "Approach Speed 01"@en ;
-                 skos:definition "The speed measured by Approach Speed Measurement 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeed02
-:ApproachSpeed02 rdf:type owl:NamedIndividual ,
-                          cco:ont00000830 ;
-                 rdfs:label "Approach Speed 02"@en ;
-                 skos:definition "The speed measured by Approach Speed Measurement 02."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeed03
-:ApproachSpeed03 rdf:type owl:NamedIndividual ,
-                          cco:ont00000830 ;
-                 rdfs:label "Approach Speed 03"@en ;
-                 skos:definition "The speed measured by Approach Speed Measurement 03."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeed04
-:ApproachSpeed04 rdf:type owl:NamedIndividual ,
-                          cco:ont00000830 ;
-                 rdfs:label "Approach Speed 04"@en ;
-                 skos:definition "The speed measured by Approach Speed Measurement 04."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeed05
-:ApproachSpeed05 rdf:type owl:NamedIndividual ,
-                          cco:ont00000830 ;
-                 rdfs:label "Approach Speed 05"@en ;
-                 skos:definition "The speed measured by Approach Speed Measurement 05."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedField01
-:ApproachSpeedField01 rdf:type owl:NamedIndividual ,
-                               cco:ont00001243 ;
-                      cco:ont00001765 "137"^^xsd:nonNegativeInteger ;
-                      cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedField02
-:ApproachSpeedField02 rdf:type owl:NamedIndividual ,
-                               cco:ont00001243 ;
-                      cco:ont00001765 "140"^^xsd:nonNegativeInteger ;
-                      cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedField03
-:ApproachSpeedField03 rdf:type owl:NamedIndividual ,
-                               cco:ont00001243 ;
-                      cco:ont00001765 "139"^^xsd:nonNegativeInteger ;
-                      cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedField04
-:ApproachSpeedField04 rdf:type owl:NamedIndividual ,
-                               cco:ont00001243 ;
-                      cco:ont00001765 "143"^^xsd:nonNegativeInteger ;
-                      cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedField05
-:ApproachSpeedField05 rdf:type owl:NamedIndividual ,
-                               cco:ont00001243 ;
-                      cco:ont00001765 "136"^^xsd:nonNegativeInteger ;
-                      cco:ont00001863 cco:ont00001646 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedMeasurement01
-:ApproachSpeedMeasurement01 rdf:type owl:NamedIndividual ,
-                                     cco:ont00001163 ;
-                            obo:BFO_0000084 :TestReport01 ;
-                            rdfs:label "Approach Speed Measurement 01"@en ;
-                            skos:definition "The measurement of Approach Speed 01 in Test Report 01."@en ;
-                            cco:ont00001966 :ApproachSpeed01 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedMeasurement02
-:ApproachSpeedMeasurement02 rdf:type owl:NamedIndividual ,
-                                     cco:ont00001163 ;
-                            obo:BFO_0000084 :TestReport01 ;
-                            rdfs:label "Approach Speed Measurement 02"@en ;
-                            skos:definition "The measurement of Approach Speed 02 in Test Report 01."@en ;
-                            cco:ont00001966 :ApproachSpeed02 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedMeasurement03
-:ApproachSpeedMeasurement03 rdf:type owl:NamedIndividual ,
-                                     cco:ont00001163 ;
-                            obo:BFO_0000084 :TestReport01 ;
-                            rdfs:label "Approach Speed Measurement 03"@en ;
-                            skos:definition "The measurement of Approach Speed 03 in Test Report 01."@en ;
-                            cco:ont00001966 :ApproachSpeed03 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedMeasurement04
-:ApproachSpeedMeasurement04 rdf:type owl:NamedIndividual ,
-                                     cco:ont00001163 ;
-                            obo:BFO_0000084 :TestReport01 ;
-                            rdfs:label "Approach Speed Measurement 04"@en ;
-                            skos:definition "The measurement of Approach Speed 04 in Test Report 01."@en ;
-                            cco:ont00001966 :ApproachSpeed04 .
-
-
-###  http://example.org/OntologyTradecraft/instances/ApproachSpeedMeasurement05
-:ApproachSpeedMeasurement05 rdf:type owl:NamedIndividual ,
-                                     cco:ont00001163 ;
-                            obo:BFO_0000084 :TestReport01 ;
-                            rdfs:label "Approach Speed Measurement 05"@en ;
-                            skos:definition "The measurement of Approach Speed 05 in Test Report 01."@en ;
-                            cco:ont00001966 :ApproachSpeed05 .
-
-
-###  http://example.org/OntologyTradecraft/instances/May2024-OEWS_EstimateProcess01
-:May2024-OEWS_EstimateProcess01 rdf:type owl:NamedIndividual ,
-                                         cco:ont00000345 ;
-                                rdfs:label "May 2024 OEWS Estimate"@en ;
-                                skos:definition "The Occupational Employment and Wage Statistics survey that took place in May 2024."@en ;
-                                cco:ont00001986 :OCC_WageDocument01 .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_17-2010_Entry
-:OCC_17-2010_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   cco:ont00001808 :OCC_role01 ;
-                   p2o:hasAnnual10thPercentileWage 85350 ;
-                   p2o:hasAnnual25thPercentileWage 104740 ;
-                   p2o:hasAnnual75thPercentileWage 174480 ;
-                   p2o:hasAnnual90thPercentileWage 205850 ;
-                   p2o:hasArea "99" ;
-                   p2o:hasAreaTitle "U.S." ;
-                   p2o:hasAreaType "1" ;
-                   p2o:hasEmploymentPRSE 2.3 ;
-                   p2o:hasHourly10thPercentileWage 41.04 ;
-                   p2o:hasHourly25thPercentileWage 50.36 ;
-                   p2o:hasHourly75thPercentileWage 83.88 ;
-                   p2o:hasHourly90thPercentileWage 98.97 ;
-                   p2o:hasIGroup "cross-industry" ;
-                   p2o:hasMeanAnnualWage 141180 ;
-                   p2o:hasMeanHourlyWage 67.88 ;
-                   p2o:hasMeanPRSE 0.8 ;
-                   p2o:hasMedianAnnualWage 134830 ;
-                   p2o:hasMedianHourlyWage 64.82 ;
-                   p2o:hasNAICSCode "000000" ;
-                   p2o:hasNAICSTitle "Cross-industry" ;
-                   p2o:hasOCCCode "17-2010" ;
-                   p2o:hasOCCTitle "Aerospace Engineers" ;
-                   p2o:hasOGroup "broad" ;
-                   p2o:hasOwnCode "1235" ;
-                   p2o:hasPrimaryState "US" ;
-                   p2o:hasTotalEmployees 68,440 ;
-                   rdfs:label "OCC 17-2010 Entry"@en ;
-                   skos:definition "The entry on row 179 of national_M2024_dl."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_17-2010_TotalEmployees01
-:OCC_17-2010_TotalEmployees01 rdf:type owl:NamedIndividual ,
-                                       cco:ont00000539 ;
-                              p2o:hasTotalEmployees 68440 ;
-                              rdfs:label "Total Employment"@en ;
-                              skos:definition "A measurement of how many Aerospace Engineers were employed in the U.S. in May 2024."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_17-2011_Entry
-:OCC_17-2011_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   cco:ont00001808 :OCC_role01 ;
-                   p2o:hasAnnual10thPercentileWage 85350 ;
-                   p2o:hasAnnual25thPercentileWage 104740 ;
-                   p2o:hasAnnual75thPercentileWage 174480 ;
-                   p2o:hasAnnual90thPercentileWage 205850 ;
-                   p2o:hasArea "99" ;
-                   p2o:hasAreaTitle "U.S." ;
-                   p2o:hasAreaType "1" ;
-                   p2o:hasEmploymentPRSE 2.3 ;
-                   p2o:hasHourly10thPercentileWage 41.04 ;
-                   p2o:hasHourly25thPercentileWage 50.36 ;
-                   p2o:hasHourly75thPercentileWage 83.88 ;
-                   p2o:hasHourly90thPercentileWage 98.97 ;
-                   p2o:hasIGroup "cross-industry" ;
-                   p2o:hasMeanAnnualWage 141180 ;
-                   p2o:hasMeanHourlyWage 67.88 ;
-                   p2o:hasMeanPRSE 0.8 ;
-                   p2o:hasMedianAnnualWage 134830 ;
-                   p2o:hasMedianHourlyWage 64.82 ;
-                   p2o:hasNAICSCode "000000" ;
-                   p2o:hasNAICSTitle "Cross-industry" ;
-                   p2o:hasOCCCode "17-2011" ;
-                   p2o:hasOCCTitle "Aerospace Engineers" ;
-                   p2o:hasOGroup "detailed" ;
-                   p2o:hasOwnCode "1235" ;
-                   p2o:hasPrimaryState "US" ;
-                   p2o:hasTotalEmployees 68,440 ;
-                   rdfs:label "OCC 17-2011 Entry"@en ;
-                   skos:definition "The entry on row 180 of national_M2024_dl."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_17-3021_Entry
-:OCC_17-3021_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   cco:ont00001808 :OCC_role02 ;
-                   p2o:hasAnnual10thPercentileWage 53730 ;
-                   p2o:hasAnnual25thPercentileWage 64570 ;
-                   p2o:hasAnnual75thPercentileWage 102220 ;
-                   p2o:hasAnnual90thPercentileWage 120440 ;
-                   p2o:hasArea "99" ;
-                   p2o:hasAreaTitle "U.S." ;
-                   p2o:hasAreaType "1" ;
-                   p2o:hasEmploymentPRSE 4.3 ;
-                   p2o:hasHourly10thPercentileWage 25.83 ;
-                   p2o:hasHourly25thPercentileWage 31.04 ;
-                   p2o:hasHourly75thPercentileWage 49.14 ;
-                   p2o:hasHourly90thPercentileWage 57.91 ;
-                   p2o:hasIGroup "cross-industry" ;
-                   p2o:hasMeanAnnualWage 86,330 ;
-                   p2o:hasMeanHourlyWage 41.50 ;
-                   p2o:hasMeanPRSE 1.4 ;
-                   p2o:hasMedianAnnualWage 79830 ;
-                   p2o:hasMedianHourlyWage 38.38 ;
-                   p2o:hasNAICSCode "000000" ;
-                   p2o:hasNAICSTitle "Cross-industry" ;
-                   p2o:hasOCCCode "17-3021" ;
-                   p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians" ;
-                   p2o:hasOGroup "detailed" ;
-                   p2o:hasOwnCode "1235" ;
-                   p2o:hasPrimaryState "US" ;
-                   p2o:hasTotalEmployees 9,060 ;
-                   rdfs:label "OCC 17-3021 Entry"@en ;
-                   skos:definition "The entry on row 220 of national_M2024_dl."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_WageDocument01
-:OCC_WageDocument01 rdf:type owl:NamedIndividual ,
-                             cco:ont00002042 ;
-                    obo:BFO_0000178 :OCC_17-2010_Entry ,
-                                    :OCC_17-2011_Entry ,
-                                    :OCC_17-3021_Entry ;
-                    rdfs:label "national_M2024_dl"@en ;
-                    skos:definition "The spreadsheet containing all entries for the May 2024 OEWS survey."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_role01
-:OCC_role01 rdf:type owl:NamedIndividual ,
-                     p2o:AerospaceEngineerRole ;
-            rdfs:label "OCC Role 01"@en ;
-            skos:definition "An instance of an Aerospace Engineer Role for modeling purposes."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/OCC_role02
-:OCC_role02 rdf:type owl:NamedIndividual ,
-                     [ rdf:type owl:Class ;
-                       owl:unionOf ( p2o:AerospaceOperationsTechnologistRole
-                                     p2o:AerospaceTechnicianRole
-                                   )
-                     ] ;
-            rdfs:label "OCC Role 02"@en ;
-            skos:definition "An instance of a combined for modeling purposes."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/SOC_17-2010_Entry
-:SOC_17-2010_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   cco:ont00001808 p2o:AerospaceEngineerRole ;
-                   p2o:hasOCCCode "17-2010" ;
-                   p2o:hasOCCTitle "Aerospace Engineers" ;
-                   p2o:hasOGroup "Broad" ;
-                   rdfs:comment "Has same definition as the detailed entry, since the broad entry has none."@en ;
-                   rdfs:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en ;
-                   rdfs:label "SOC 17-2010"@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/SOC_17-2011_Entry
-:SOC_17-2011_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   p2o:hasOCCCode "17-2011" ;
-                   p2o:hasOCCTitle "Aerospace Engineers" ;
-                   p2o:hasOGroup "Detailed" ;
-                   rdfs:label "SOC 17-2011"@en ;
-                   skos:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/SOC_17-3021_Entry
-:SOC_17-3021_Entry rdf:type owl:NamedIndividual ,
-                            cco:ont00002037 ;
-                   p2o:hasOCCCode "17-3021" ;
-                   p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians" ;
-                   p2o:hasOGroup "Detailed" ;
-                   rdfs:label "SOC 17-3021"@en ;
-                   skos:definition "Operate, install, adjust, and maintain integrated computer/communications systems, consoles, simulators, and other data acquisition, test, and measurement instruments and equipment, which are used to launch, track, position, and evaluate air and space vehicles. May record and interpret test data."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/SOC_Document01
-:SOC_Document01 rdf:type owl:NamedIndividual ,
-                         cco:ont00002042 ;
-                obo:BFO_0000178 :SOC_17-2010_Entry ,
-                                :SOC_17-2011_Entry ,
-                                :SOC_17-3021_Entry ;
-                rdfs:label "Structure 2018"@en ;
-                skos:definition "The Standard Occupational Classification document from 2018, created by the U.S. Bureau of Labor Statistics."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TemporalRegion01
-:TemporalRegion01 rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000008 ;
-                  obo:BFO_0000063 :TemporalRegion02 ;
-                  rdfs:label "Temporal Region 01"@en ;
-                  skos:definition "The temporal region occupied by Aircraft Approach 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TemporalRegion02
-:TemporalRegion02 rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000008 ;
-                  obo:BFO_0000063 :TemporalRegion03 ;
-                  rdfs:label "Temporal Region 02"@en ;
-                  skos:definition "The temporal region occupied by Aircraft Approach 02."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TemporalRegion03
-:TemporalRegion03 rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000008 ;
-                  obo:BFO_0000063 :TemporalRegion04 ;
-                  rdfs:label "Temporal Region 03"@en ;
-                  skos:definition "The temporal region occupied by Aircraft Approach 03."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TemporalRegion04
-:TemporalRegion04 rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000008 ;
-                  obo:BFO_0000063 :TemporalRegion05 ;
-                  rdfs:label "Temporal Region 04"@en ;
-                  skos:definition "The temporal region occupied by Aircraft Approach 04."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TemporalRegion05
-:TemporalRegion05 rdf:type owl:NamedIndividual ,
-                           obo:BFO_0000008 ;
-                  rdfs:label "Temporal Region 05"@en ;
-                  skos:definition "The temporal region occupied by Aircraft Approach 05."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TestProcess01
-:TestProcess01 rdf:type owl:NamedIndividual ,
-                        p2o:AircraftTestingProcess ;
-               rdfs:label "Test Process 01"@en ;
-               skos:definition "An aircraft testing process that consisted of 5 aircraft approaches by one Airbus A321."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TestReport01
-:TestReport01 rdf:type owl:NamedIndividual ,
-                       cco:ont00000624 ;
-              obo:BFO_0000178 :ApproachSpeedField01 ,
-                              :ApproachSpeedField02 ,
-                              :ApproachSpeedField03 ,
-                              :ApproachSpeedField04 ,
-                              :ApproachSpeedField05 ;
-              rdfs:label "Test Report 01"@en ;
-              skos:definition "A report containing measurement data about the approach speed of multiple aircraft approaches."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/TestReport01_IBE
-:TestReport01_IBE rdf:type owl:NamedIndividual ,
-                           cco:ont00000624 ;
-                  rdfs:label "Test Report 01 IBE"@en ;
-                  skos:definition "The material copy of Test Report 01."@en .
-
-
-###  http://example.org/OntologyTradecraft/instances/USGovernmentDomain
-:USGovernmentDomain rdf:type owl:NamedIndividual ,
-                             cco:ont00001152 ;
-                    rdfs:label "US Government Domain"@en ;
-                    skos:altLabel "U.S." ;
-                    skos:definition "The location of some member of the US Population." .
-
-
-###  http://example.org/OntologyTradecraft/instances/USPopulation
-:USPopulation rdf:type owl:NamedIndividual ,
-                       cco:ont00000141 ;
-              rdfs:label "US Population"@en ;
-              skos:definition "The group of people that constitute the population of the United States at any given time."@en ;
-              cco:ont00001832 :USGovernmentDomain ;
-              cco:ont00001841 :May2024-OEWS_EstimateProcess01 .
-
-
-###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/OntologyTradecraft/instances/> a owl:Ontology ;
+    owl:imports <http://example.org/OntologyTradecraft/core/> ;
+    rdfs:comment "This ontology contains instances for Ontology Tradecraft Project 2."@en ;
+    rdfs:label "Ontology Tradecraft Project 2 Instances"@en .
+
+#=======================
+# Individuals
+#=======================
+
+## Task 1
+:AirbusA320NSpecification a owl:NamedIndividual ,
+    [ a owl:Restriction ;
+      owl:onProperty cco:ont00001808 ;
+      owl:allValuesFrom [ owl:intersectionOf ( p2o:FixedWing 
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000178 ;
+            owl:cardinality "2"^^xsd:integer ;
+            owl:onClass cco:ont00000533 #Jet Engine
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasManufacturer ;
+            owl:hasValue :Airbus
+        ]
+        
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasLengthInFeet ;
+            owl:hasValue "123.3"^^xsd:decimal
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasModelBADA ;
+            owl:hasValue "Airbus A320-271N"^^xsd:string
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasModelFAA ;
+            owl:hasValue "Airbus A320 NEO"^^xsd:string
+        ]
+        [ a owl:Restriction ;
+            owl:onProperty p2o:hasTailHeightInFeet ;
+            owl:hasValue "39.6"^^xsd:decimal
+        ]
+        ) ;
+            a owl:Class
+                    ]
+    ] ;
+    rdfs:label "Airbus A320 NEO"@en ;
+    skos:definition "The individual jet specification for an Airbus A320 Neo."@en .
+
+:AirbusA320N_JetEngine_01 a cco:ont00000533 ;
+    rdfs:label "Jet Engine 01"@en ;
+    skos:definition "The first jet engine attached to Airbus A320 Neo 01."@en .
+
+
+:AirbusA320N_JetEngine_02 a cco:ont00000533 ;
+    rdfs:label "Jet Engine 02"@en ;
+    skos:definition "The second jet engine attached to Airbus A320 Neo 01."@en .
+
+:AirbusA320N_01 a p2o:FixedWing ;
+    rdfs:label "Airbus A320 Neo 01"@en ;
+    skos:definition "An instance of the Airbus A320 Neo that matches the artifact design."@en ;
+    obo:BFO_0000178 :AirbusA320N_JetEngine_01 , :AirbusA320N_JetEngine_02 ;
+    cco:ont00001801 :AirbusA320NSpecification ;
+    p2o:hasICAOCode "A20N"^^xsd:string ;
+    p2o:hasFAADesignator "A20N"^^xsd:string ;
+    p2o:hasManufacturer :Airbus ;
+    p2o:hasModelFAA "Airbus A320 Neo"^^xsd:string ;
+    p2o:hasModelBADA "Airbus A320-271 N"^^xsd:string ;
+    p2o:hasAAC "C"^^xsd:string ;
+    p2o:hasAircraftDesignGroup "III"^^xsd:string ;
+    p2o:hasTaxiwayDesignGroup "3"^^xsd:string ;
+    p2o:hasApproachSpeedInKnots "137"^^xsd:integer ;
+    p2o:hasWingspanInFeetWithWingletsSharklets "117.5"^^xsd:decimal ;
+    p2o:hasLengthInFeet "123.3"^^xsd:decimal ;
+    p2o:hasTailHeightInFeet "39.6"^^xsd:decimal ;
+    p2o:hasWheelbaseInFeet "41.5"^^xsd:decimal ;
+    p2o:hasCockpitToMainGearDistanceInFeet "50.2"^^xsd:decimal ;
+    p2o:hasMainGearWidthInFeet "29.4"^^xsd:decimal ;
+    p2o:hasMaximumTakeoffGrossWeightInPounds "174165"^^xsd:integer ;
+    p2o:hasMaximumAllowableLandingWeightInPounds "148591"^^xsd:integer ;
+    p2o:hasMainGearConfiguration "D"^^xsd:string ;
+    p2o:hasICAOWeightTurbulenceCategory "Medium"^^xsd:string ;
+    p2o:hasParkingAreaInSquareFeet "16358.3"^^xsd:decimal ;
+    p2o:hasFAAWeightCategory "Large"^^xsd:string ;
+    p2o:hasConsolidatedWeightTurbulenceCategory "F"^^xsd:string ;
+    p2o:hasOneHalfWakeCategory "F"^^xsd:string ;
+    p2o:hasTwoWakeCategoryAppendixA "D"^^xsd:string ;
+    p2o:hasTwoWakeCategoryAppendixB "D"^^xsd:string ;
+    p2o:hasSRSCategory "III"^^xsd:string ;
+    p2o:hasLAHSOGroup "7"^^xsd:string ;
+    p2o:onFAARegistry "true"^^xsd:boolean ;
+    p2o:hasRegistrationCount "147"^^xsd:integer ;
+    p2o:hasNumberOfTMFSOperationsInFY24 "540276"^^xsd:integer ;
+    p2o:Remarks "AAC validated by Flight Standardization Board (FSB) report."@en .
+
+:Airbus a p2o:AircraftManufacturer ;
+    rdfs:label "Airbus"@en ;
+    skos:definition "A European aerospace corporation and manufacturer of aircraft and spacecraft in commercial, private, and military domains."@en .
+    
+## Task 2
+
+:AirbusA321Specification a owl:NamedIndividual ,
+    [ a owl:Restriction ;
+        owl:onProperty cco:ont00001942 ;
+        owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet
+            [ a owl:Restriction ;
+                owl:onProperty p2o:hasApproachSpeedMaximumInKnots ;
+                owl:hasValue "142"^^xsd:nonNegativeInteger 
+                ]
+        ) ;
+        ]
+    ] ;
+    rdfs:label "Airbus A321-111"@en ;
+    skos:definition "The individual jet specification for an Airbus A321."@en ;
+    obo:BFO_0000084 :AirbusA321SpecIBE .
+
+:AirbusA321SpecIBE a cco:ont00001298 ;
+    rdfs:label "Airbus A321 Specification IBE"@en ;
+    skos:definition "A material copy of the Airbus A321 Specification."@en ;
+    cco:ont00001769 "142"^^xsd:decimal ;
+    cco:ont00001863 cco:ont00001646 .
+
+:TestProcess01 a p2o:AircraftTestingProcess ;
+    rdfs:label "Test Process 01"@en ;
+    skos:definition "An aircraft testing process that consisted of 5 aircraft approaches by one Airbus A321."@en .
+
+:Aircraft01 a p2o:Jet ;
+    rdfs:label "Aircraft 01"@en ;
+    skos:definition "The Airbus A321 used in Test Process 01."@en ;
+    cco:ont00001920 :AirbusA321Specification .
+
+:TemporalRegion01 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 01"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 01."@en ;
+    obo:BFO_0000063 :TemporalRegion02 .
+
+:TemporalRegion02 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 02"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 02."@en ;
+    obo:BFO_0000063 :TemporalRegion03 .
+:TemporalRegion03 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 03"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 03."@en ;
+    obo:BFO_0000063 :TemporalRegion04 .
+:TemporalRegion04 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 04"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 04."@en ;
+    obo:BFO_0000063 :TemporalRegion05 .
+:TemporalRegion05 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 05"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 05."@en .
+
+:ApproachSpeed01 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 01"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 01."@en .
+:ApproachSpeed02 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 02"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 02."@en .
+:ApproachSpeed03 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 03"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 03."@en .
+:ApproachSpeed04 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 04"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 04."@en .
+:ApproachSpeed05 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 05"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 05."@en .
+
+:ApproachSpeedField01 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "137"^^xsd:nonNegativeInteger .
+
+:ApproachSpeedField02 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "140"^^xsd:nonNegativeInteger .
+:ApproachSpeedField03 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "139"^^xsd:nonNegativeInteger .
+:ApproachSpeedField04 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "143"^^xsd:nonNegativeInteger .
+:ApproachSpeedField05 a cco:ont00001243 ;
+    cco:ont00001863 cco:ont00001646 ;
+    cco:ont00001765 "136"^^xsd:nonNegativeInteger .
+
+:TestReport01_IBE a cco:ont00000624 ;
+    rdfs:label "Test Report 01 IBE"@en ;
+    skos:definition "The material copy of Test Report 01."@en .
+
+:TestReport01 a cco:ont00000624 ;
+    rdfs:label "Test Report 01"@en ;
+    skos:definition "A report containing measurement data about the approach speed of multiple aircraft approaches."@en ;
+    obo:BFO_0000178 :ApproachSpeedField01 ;
+    obo:BFO_0000178 :ApproachSpeedField02 ;
+    obo:BFO_0000178 :ApproachSpeedField03 ;
+    obo:BFO_0000178 :ApproachSpeedField04 ;
+    obo:BFO_0000178 :ApproachSpeedField05 .
+
+:ApproachSpeedMeasurement01 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 01"@en ;
+    skos:definition "The measurement of Approach Speed 01 in Test Report 01."@en ;
+    cco:ont00001966 :ApproachSpeed01 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement02 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 02"@en ;
+    skos:definition "The measurement of Approach Speed 02 in Test Report 01."@en ;
+    cco:ont00001966 :ApproachSpeed02 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement03 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 03"@en ;
+    skos:definition "The measurement of Approach Speed 03 in Test Report 01."@en ;
+    cco:ont00001966 :ApproachSpeed03 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement04 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 04"@en ;
+    skos:definition "The measurement of Approach Speed 04 in Test Report 01."@en ;
+    cco:ont00001966 :ApproachSpeed04 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:ApproachSpeedMeasurement05 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 05"@en ;
+    skos:definition "The measurement of Approach Speed 05 in Test Report 01."@en ;
+    cco:ont00001966 :ApproachSpeed05 ; #is a measurement of
+    obo:BFO_0000084 :TestReport01 .
+
+:Approach01 a p2o:AircraftApproach ;
+    rdfs:label "Approach 01"@en ;
+    skos:definition "The first approach in Test Process 01."@en ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion01 ;
+    obo:BFO_0000117 :ApproachSpeed01 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach02 a p2o:AircraftApproach ;
+    rdfs:label "Approach 02"@en ;
+    skos:definition "The second approach in Test Process 01."@en ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion02 ;
+    obo:BFO_0000117 :ApproachSpeed02 ;
+    obo:BFO_0000057 :Aircraft01 .
+:Approach03 a p2o:AircraftApproach ;
+    rdfs:label "Approach 03"@en ;
+    skos:definition "The third approach in Test Process 01."@en ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion03 ;
+    obo:BFO_0000117 :ApproachSpeed03 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach04 a p2o:AircraftApproach ;
+    rdfs:label "Approach 04"@en ;
+    skos:definition "The fourth approach in Test Process 01."@en ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion04 ;
+    obo:BFO_0000117 :ApproachSpeed04 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+:Approach05 a p2o:AircraftApproach ;
+    rdfs:label "Approach 05"@en ;
+    skos:definition "The fifth approach in Test Process 01."@en ;
+    obo:BFO_0000132 :TestProcess01 ;
+    obo:BFO_0000199 :TemporalRegion05 ;
+    obo:BFO_0000117 :ApproachSpeed05 ;
+    obo:BFO_0000057 :Aircraft01 .
+
+## Task 3
+:SOC_Document01 a cco:ont00002042 ;
+    rdfs:label "Structure 2018"@en ;
+    skos:definition "The Standard Occupational Classification document from 2018, created by the U.S. Bureau of Labor Statistics."@en ;
+    obo:BFO_0000178 :SOC_17-2010_Entry ;
+    obo:BFO_0000178 :SOC_17-2011_Entry ;
+    obo:BFO_0000178 :SOC_17-3021_Entry .
+
+:SOC_17-2010_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-2010"@en ;
+    rdfs:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en ;
+    rdfs:comment "Has same definition as the detailed entry, since the broad entry has none."@en ;
+    cco:ont00001808 p2o:AerospaceEngineerRole ;
+    p2o:hasOGroup "Broad"^^xsd:string ;
+    p2o:hasOCCCode "17-2010"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string .
+
+:SOC_17-2011_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-2011"@en ;
+    skos:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en ;
+    p2o:hasOGroup "Detailed"^^xsd:string ;
+    p2o:hasOCCCode "17-2011"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string .
+
+:SOC_17-3021_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-3021"@en ;
+    skos:definition "Operate, install, adjust, and maintain integrated computer/communications systems, consoles, simulators, and other data acquisition, test, and measurement instruments and equipment, which are used to launch, track, position, and evaluate air and space vehicles. May record and interpret test data."@en ;
+    p2o:hasOGroup "Detailed"^^xsd:string ;
+    p2o:hasOCCCode "17-3021"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians"^^xsd:string .
+
+## Task 4
+:USGovernmentDomain a cco:ont00001152 ;
+    rdfs:label "US Government Domain"@en ;
+    skos:altLabel "U.S." ;
+    skos:definition "The location of some member of the US Population." .
+
+:USPopulation a cco:ont00000141 ;
+    rdfs:label "US Population"@en ;
+    skos:definition "The group of people that constitute the population of the United States at any given time."@en ;
+    cco:ont00001841 :May2024-OEWS_EstimateProcess01 ;
+    cco:ont00001832 :USGovernmentDomain .
+
+:AerospaceEngineerPopulation a cco:ont00000914 ;
+    rdfs:label "Aerospace Engineer Population"@en ;
+    skos:definition "The group of people that constitution the portion of the United States population that are Aerospace Engineers at any given time."@en ;
+    obo:BFO_0000176 :USPopulation .
+
+:OCC_17-2010_TotalEmployees01 a cco:ont00000539 ;
+    rdfs:label "Total Employment"@en ;
+    skos:definition "A measurement of how many Aerospace Engineers were employed in the U.S. in May 2024."@en ;
+    p2o:hasTotalEmployees "68440"^^xsd:integer .
+
+:May2024-OEWS_EstimateProcess01 a cco:ont00000345 ;
+    rdfs:label "May 2024 OEWS Estimate"@en ;
+    skos:definition "The Occupational Employment and Wage Statistics survey that took place in May 2024."@en ;
+    cco:ont00001986 :OCC_WageDocument01 .
+
+:OCC_role01 a p2o:AerospaceEngineerRole ;
+    rdfs:label "OCC Role 01"@en ;
+    skos:definition "An instance of an Aerospace Engineer Role for modeling purposes."@en .
+
+:OCC_role02 a [ a owl:Class ;
+            owl:unionOf ( p2o:AerospaceOperationsTechnologistRole
+                          p2o:AerospaceTechnicianRole )
+          ] ;
+    rdfs:label "OCC Role 02"@en ;
+    skos:definition "An instance of a combined for modeling purposes."@en .
+
+:OCC_WageDocument01 a cco:ont00002042 ;
+    rdfs:label "national_M2024_dl"@en ;
+    skos:definition "The spreadsheet containing all entries for the May 2024 OEWS survey."@en ;
+    obo:BFO_0000178 :OCC_17-2010_Entry ;
+    obo:BFO_0000178 :OCC_17-2011_Entry ;
+    obo:BFO_0000178 :OCC_17-3021_Entry .
+
+:OCC_17-2010_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-2010 Entry"@en ;
+    skos:definition "The entry on row 179 of national_M2024_dl."@en ;
+    cco:ont00001808 :OCC_role01 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-2010"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
+    p2o:hasOGroup "broad"^^xsd:string ;
+    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
+    p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "85350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
+
+:OCC_17-2011_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-2011 Entry"@en ;
+    skos:definition "The entry on row 180 of national_M2024_dl."@en ;
+    cco:ont00001808 :OCC_role01 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-2011"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
+    p2o:hasOGroup "detailed"^^xsd:string ;
+    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
+    p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "85350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
+
+:OCC_17-3021_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-3021 Entry"@en ;
+    skos:definition "The entry on row 220 of national_M2024_dl."@en ;
+    cco:ont00001808 :OCC_role02 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-3021"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians"^^xsd:string ;
+    p2o:hasOGroup "detailed"^^xsd:string ;
+    p2o:hasTotalEmployees "9,060"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "4.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "41.50"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "86,330"^^xsd:integer ;
+    p2o:hasMeanPRSE "1.4"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "25.83"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "31.04"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "38.38"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "49.14"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "57.91"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "53730"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "64570"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "79830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "102220"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "120440"^^xsd:integer .
