@@ -25,7 +25,7 @@
       owl:allValuesFrom [ owl:intersectionOf ( p2o:FixedWing 
         [ a owl:Restriction ;
             owl:onProperty bfo:BFO_0000178 ;
-            owl:cardinality "2"^^xsd:nonNegativeInteger ;
+            owl:cardinality "2"^^xsd:integer ;
             owl:onClass cco:ont00000533 #Jet Engine
         ]
         [ a owl:Restriction ;
