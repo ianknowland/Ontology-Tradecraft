@@ -112,7 +112,7 @@
         owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet
             [ a owl:Restriction ;
                 owl:onProperty p2o:hasApproachSpeedMaximumInKnots ;
-                owl:hasValue "142"^^xsd:nonNegativeInteger 
+                owl:hasValue "142"^^xsd:integer
                 ]
         ) ;
         ]
@@ -395,7 +395,7 @@
     p2o:hasOCCCode "17-2011"^^xsd:string ;
     p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
     p2o:hasOGroup "detailed"^^xsd:string ;
-    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasTotalEmployees "68440"^^xsd:integer ;
     p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
     p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
@@ -429,7 +429,7 @@
     p2o:hasTotalEmployees "9,060"^^xsd:integer ;
     p2o:hasEmploymentPRSE "4.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "41.50"^^xsd:decimal ;
-    p2o:hasMeanAnnualWage "86,330"^^xsd:integer ;
+    p2o:hasMeanAnnualWage "86330"^^xsd:integer ;
     p2o:hasMeanPRSE "1.4"^^xsd:decimal ;
     p2o:hasHourly10thPercentileWage "25.83"^^xsd:decimal ;
     p2o:hasHourly25thPercentileWage "31.04"^^xsd:decimal ;
