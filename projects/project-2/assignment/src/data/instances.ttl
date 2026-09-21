@@ -318,7 +318,8 @@
 :AerospaceEngineerPopulation a cco:ont00000914 ;
     rdfs:label "Aerospace Engineer Population"@en ;
     skos:definition "The group of people that constitution the portion of the United States population that are Aerospace Engineers at any given time."@en ;
-    obo:BFO_0000176 :USPopulation .
+    obo:BFO_0000176 :USPopulation ;
+    cco:ont00001841 :May2024-OEWS_EstimateProcess01 .
 
 :OCC_17-2010_TotalEmployees01 a cco:ont00000539 ;
     rdfs:label "Total Employment"@en ;
