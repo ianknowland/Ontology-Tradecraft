@@ -29,7 +29,7 @@
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
 
 <https://www.commoncoreontologies.org/ont00000533> rdf:type owl:Class ;
-                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000056> , obo:BFO_0000040 ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000056> , <http://purl.obolibrary.org/obo/BFO_0000040> ;
                                                    rdfs:label "Jet Engine"@en ;
                                                    <http://www.w3.org/2004/02/skos/core#definition> "A Reaction Engine that discharges a fast moving jet that generates Thrust by jet propulsion."@en ;
                                                    <http://www.w3.org/2004/02/skos/core#scopeNote> "Some (most) jet engines utilize turbines, but some do not. Most rocket engines do not utilize turbines, but some do."@en ;
