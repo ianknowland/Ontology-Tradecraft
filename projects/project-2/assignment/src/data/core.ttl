@@ -1,8 +1,7 @@
 @prefix : <http://example.org/OntologyTradecraft/core/> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
-@prefix http: <http://www.w3.org/2011/http#> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -60,6 +59,7 @@
                                              rdfs:range <http://purl.obolibrary.org/obo/BFO_0000003> ;
                                              dc11:identifier "078-BFO" ;
                                              rdfs:label "temporal part of"@en ;
+                                             rdfs:label "is temporal part of"@en ;
                                              skos:definition "b temporal part of c =Def b occurrent part of c & (b and c are temporal regions) or (b and c are spatiotemporal regions & b temporally projects onto an occurrent part of the temporal region that c temporally projects onto) or (b and c are processes or process boundaries & b occupies a temporal region that is an occurrent part of the temporal region that c occupies)"@en ;
                                              skos:example "Your heart beating from 4pm to 5pm today is a temporal part of the process of your heart beating; the 4th year of your life is a temporal part of your life, as is the process boundary which separates the 3rd and 4th years of your life; the first quarter of a game of football is a temporal part of the whole game"@en .
 
@@ -166,7 +166,7 @@
 <http://example.org/OntologyTradecraft/core/AerospaceEngineerRole> a owl:Class ;
     rdfs:label "Aerospace Engineer Role"@en ;
     skos:definition "A role that inheres in an agent and is realized in an Act of Aircraft Processing."@en ;
-    rdfs:subClassOf obo:BFO_0000023 . #role
+    rdfs:subClassOf bfo:BFO_0000023 . #role
 
 <http://example.org/OntologyTradecraft/core/ActOfAircraftProcessing> a owl:Class ;
     rdfs:label "Act of Aircraft Processing"@en ;
@@ -188,7 +188,7 @@
 <http://example.org/OntologyTradecraft/core/ManufacturerRole> a owl:Class ;
     rdfs:label "Manufacturer Role"@en ;
     skos:definition "A role that inheres in an agent and is realized in an Act of Manufacturing."@en ;
-    rdfs:subClassOf obo:BFO_0000023 . #role
+    rdfs:subClassOf bfo:BFO_0000023 . #role
     
 <http://example.org/OntologyTradecraft/core/AircraftSpecification> a owl:Class ;
     rdfs:label "Aircraft Specification"@en ;
@@ -259,7 +259,7 @@
             cco:ont00000443
             [ 
                 a owl:Restriction ;
-                owl:onProperty obo:BFO_0000196 ; #bearer of
+                owl:onProperty bfo:BFO_0000196 ; #bearer of
                 owl:someValuesFrom :ManufacturerRole 
             ]
             [ 
@@ -659,5 +659,5 @@
 <http://example.org/OntologyTradecraft/core/Remarks> a owl:AnnotationProperty ;
     rdfs:label "remarks"@en ;
     skos:definition "An annotation property that provides additional information or comments about an entity."@en ;
-    rdfs:domain obo:BFO_0000001 ; #Entity
+    rdfs:domain bfo:BFO_0000001 ; #Entity
     rdfs:range xsd:string .

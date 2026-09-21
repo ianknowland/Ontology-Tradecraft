@@ -1,6 +1,6 @@
 @prefix : <http://example.org/OntologyTradecraft/instances/> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
-@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix bfo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix p2o: <http://example.org/OntologyTradecraft/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -23,7 +23,7 @@
       owl:onProperty cco:ont00001808 ;
       owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet 
         [ a owl:Restriction ;
-            owl:onProperty obo:BFO_0000178 ;
+            owl:onProperty bfo:BFO_0000178 ;
             owl:cardinality "2"^^xsd:nonNegativeInteger ;
             owl:onClass cco:ont00000533 #Jet Engine
         ]
@@ -84,24 +84,24 @@
     skos:definition "The Airbus A321 used in Test Process 01."@en ;
     cco:ont00001920 :AirbusA321Specification .
 
-:TemporalRegion01 a obo:BFO_0000008 ;
+:TemporalRegion01 a bfo:BFO_0000008 ;
     rdfs:label "Temporal Region 01"@en ;
     skos:definition "The temporal region occupied by Aircraft Approach 01."@en ;
-    obo:BFO_0000063 :TemporalRegion02 .
+    bfo:BFO_0000063 :TemporalRegion02 .
 
-:TemporalRegion02 a obo:BFO_0000008 ;
+:TemporalRegion02 a bfo:BFO_0000008 ;
     rdfs:label "Temporal Region 02"@en ;
     skos:definition "The temporal region occupied by Aircraft Approach 02."@en ;
-    obo:BFO_0000063 :TemporalRegion03 .
-:TemporalRegion03 a obo:BFO_0000008 ;
+    bfo:BFO_0000063 :TemporalRegion03 .
+:TemporalRegion03 a bfo:BFO_0000008 ;
     rdfs:label "Temporal Region 03"@en ;
     skos:definition "The temporal region occupied by Aircraft Approach 03."@en ;
-    obo:BFO_0000063 :TemporalRegion04 .
-:TemporalRegion04 a obo:BFO_0000008 ;
+    bfo:BFO_0000063 :TemporalRegion04 .
+:TemporalRegion04 a bfo:BFO_0000008 ;
     rdfs:label "Temporal Region 04"@en ;
     skos:definition "The temporal region occupied by Aircraft Approach 04."@en ;
-    obo:BFO_0000063 :TemporalRegion05 .
-:TemporalRegion05 a obo:BFO_0000008 ;
+    bfo:BFO_0000063 :TemporalRegion05 .
+:TemporalRegion05 a bfo:BFO_0000008 ;
     rdfs:label "Temporal Region 05"@en ;
     skos:definition "The temporal region occupied by Aircraft Approach 05."@en .
 
@@ -138,68 +138,90 @@
     cco:ont00001863 cco:ont00001646 ;
     cco:ont00001765 "136"^^xsd:nonNegativeInteger .
 :TestReport01 a cco:ont00000624 ;
-    obo:BFO_0000178 :ApproachSpeedField01 ;
-    obo:BFO_0000178 :ApproachSpeedField02 ;
-    obo:BFO_0000178 :ApproachSpeedField03 ;
-    obo:BFO_0000178 :ApproachSpeedField04 ;
-    obo:BFO_0000178 :ApproachSpeedField05 .
+    rdfs:label "Test Report 01"@en ;
+    skos:definition "A report containing measurement data about the approach speed of multiple aircraft approaches."@en ;
+    bfo:BFO_0000178 :ApproachSpeedField01 ;
+    bfo:BFO_0000178 :ApproachSpeedField02 ;
+    bfo:BFO_0000178 :ApproachSpeedField03 ;
+    bfo:BFO_0000178 :ApproachSpeedField04 ;
+    bfo:BFO_0000178 :ApproachSpeedField05 .
 
 :ApproachSpeedMeasurement01 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 01"@en ;
+    skos:definition "The measurement of Approach Speed 01 in Test Report 01."@en ;
     cco:ont00001966 :ApproachSpeed01 ; #is a measurement of
-    obo:BFO_0000084 :TestReport01 .
+    bfo:BFO_0000084 :TestReport01 .
 
 :ApproachSpeedMeasurement02 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 02"@en ;
+    skos:definition "The measurement of Approach Speed 02 in Test Report 01."@en ;
     cco:ont00001966 :ApproachSpeed02 ; #is a measurement of
-    obo:BFO_0000084 :TestReport01 .
+    bfo:BFO_0000084 :TestReport01 .
 
 :ApproachSpeedMeasurement03 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 03"@en ;
+    skos:definition "The measurement of Approach Speed 03 in Test Report 01."@en ;
     cco:ont00001966 :ApproachSpeed03 ; #is a measurement of
-    obo:BFO_0000084 :TestReport01 .
+    bfo:BFO_0000084 :TestReport01 .
 
 :ApproachSpeedMeasurement04 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 04"@en ;
+    skos:definition "The measurement of Approach Speed 04 in Test Report 01."@en ;
     cco:ont00001966 :ApproachSpeed04 ; #is a measurement of
-    obo:BFO_0000084 :TestReport01 .
+    bfo:BFO_0000084 :TestReport01 .
 
 :ApproachSpeedMeasurement05 a cco:ont00001163 ;
+    rdfs:label "Approach Speed Measurement 05"@en ;
+    skos:definition "The measurement of Approach Speed 05 in Test Report 01."@en ;
     cco:ont00001966 :ApproachSpeed05 ; #is a measurement of
-    obo:BFO_0000084 :TestReport01 .
+    bfo:BFO_0000084 :TestReport01 .
 
 :Approach01 a p2o:AircraftApproach ;
-    obo:BFO_0000132 :TestProcess01 ;
-    obo:BFO_0000199 :TemporalRegion01 ;
-    obo:BFO_0000117 :ApproachSpeed01 ;
-    obo:BFO_0000057 :Aircraft01 .
+    rdfs:label "Approach 01"@en ;
+    skos:definition "The first approach in Test Process 01."@en ;
+    bfo:BFO_0000132 :TestProcess01 ;
+    bfo:BFO_0000199 :TemporalRegion01 ;
+    bfo:BFO_0000117 :ApproachSpeed01 ;
+    bfo:BFO_0000057 :Aircraft01 .
 
 :Approach02 a p2o:AircraftApproach ;
-    obo:BFO_0000132 :TestProcess01 ;
-    obo:BFO_0000199 :TemporalRegion02 ;
-    obo:BFO_0000117 :ApproachSpeed02 ;
-    obo:BFO_0000057 :Aircraft01 .
+    rdfs:label "Approach 02"@en ;
+    skos:definition "The second approach in Test Process 01."@en ;
+    bfo:BFO_0000132 :TestProcess01 ;
+    bfo:BFO_0000199 :TemporalRegion02 ;
+    bfo:BFO_0000117 :ApproachSpeed02 ;
+    bfo:BFO_0000057 :Aircraft01 .
 :Approach03 a p2o:AircraftApproach ;
-    obo:BFO_0000132 :TestProcess01 ;
-    obo:BFO_0000199 :TemporalRegion03 ;
-    obo:BFO_0000117 :ApproachSpeed03 ;
-    obo:BFO_0000057 :Aircraft01 .
+    rdfs:label "Approach 03"@en ;
+    skos:definition "The third approach in Test Process 01."@en ;
+    bfo:BFO_0000132 :TestProcess01 ;
+    bfo:BFO_0000199 :TemporalRegion03 ;
+    bfo:BFO_0000117 :ApproachSpeed03 ;
+    bfo:BFO_0000057 :Aircraft01 .
 
 :Approach04 a p2o:AircraftApproach ;
-    obo:BFO_0000132 :TestProcess01 ;
-    obo:BFO_0000199 :TemporalRegion04 ;
-    obo:BFO_0000117 :ApproachSpeed04 ;
-    obo:BFO_0000057 :Aircraft01 .
+    rdfs:label "Approach 04"@en ;
+    skos:definition "The fourth approach in Test Process 01."@en ;
+    bfo:BFO_0000132 :TestProcess01 ;
+    bfo:BFO_0000199 :TemporalRegion04 ;
+    bfo:BFO_0000117 :ApproachSpeed04 ;
+    bfo:BFO_0000057 :Aircraft01 .
 
 :Approach05 a p2o:AircraftApproach ;
-    obo:BFO_0000132 :TestProcess01 ;
-    obo:BFO_0000199 :TemporalRegion05 ;
-    obo:BFO_0000117 :ApproachSpeed05 ;
-    obo:BFO_0000057 :Aircraft01 .
+    rdfs:label "Approach 05"@en ;
+    skos:definition "The fifth approach in Test Process 01."@en ;
+    bfo:BFO_0000132 :TestProcess01 ;
+    bfo:BFO_0000199 :TemporalRegion05 ;
+    bfo:BFO_0000117 :ApproachSpeed05 ;
+    bfo:BFO_0000057 :Aircraft01 .
 
 ## Task 3
 :SOC_Document01 a cco:ont00002042 ;
     rdfs:label "Structure 2018"@en ;
     skos:definition "The Standard Occupational Classification document from 2018, created by the U.S. Bureau of Labor Statistics."@en ;
-    obo:BFO_0000178 :SOC_17-2010_Entry ;
-    obo:BFO_0000178 :SOC_17-2011_Entry ;
-    obo:BFO_0000178 :SOC_17-3021_Entry .
+    bfo:BFO_0000178 :SOC_17-2010_Entry ;
+    bfo:BFO_0000178 :SOC_17-2011_Entry ;
+    bfo:BFO_0000178 :SOC_17-3021_Entry .
 
 :SOC_17-2010_Entry a cco:ont00002037 ;
     rdfs:label "SOC 17-2010"@en ;
@@ -239,7 +261,7 @@
 :AerospaceEngineerPopulation a cco:ont00000914 ;
     rdfs:label "Aerospace Engineer Population"@en ;
     skos:definition "The group of people that constitution the portion of the United States population that are Aerospace Engineers at any given time."@en ;
-    obo:BFO_0000176 :USPopulation .
+    bfo:BFO_0000176 :USPopulation .
 
 :OCC_17-2010_TotalEmployees01 a cco:ont00000539 ;
     rdfs:label "Total Employment"@en ;
@@ -263,12 +285,15 @@
     skos:definition "An instance of a combined for modeling purposes."@en .
 
 :OCC_WageDocument01 a cco:ont00002042 ;
-    rdfs:label "national_M2024_dl" ;
-    obo:BFO_0000178 :OCC_17-2010_Entry ;
-    obo:BFO_0000178 :OCC_17-2011_Entry ;
-    obo:BFO_0000178 :OCC_17-3021_Entry .
+    rdfs:label "national_M2024_dl"@en ;
+    skos:definition "The spreadsheet containing all entries for the May 2024 OEWS survey."@en ;
+    bfo:BFO_0000178 :OCC_17-2010_Entry ;
+    bfo:BFO_0000178 :OCC_17-2011_Entry ;
+    bfo:BFO_0000178 :OCC_17-3021_Entry .
 
 :OCC_17-2010_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-2010 Entry"@en ;
+    skos:definition "The entry on row 179 of national_M2024_dl."@en ;
     cco:ont00001808 :OCC_role01 ;
     p2o:hasArea "99"^^xsd:string ;
     p2o:hasAreaTitle "U.S."^^xsd:string ;
@@ -298,6 +323,8 @@
     p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
 
 :OCC_17-2011_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-2011 Entry"@en ;
+    skos:definition "The entry on row 180 of national_M2024_dl."@en ;
     cco:ont00001808 :OCC_role01 ;
     p2o:hasArea "99"^^xsd:string ;
     p2o:hasAreaTitle "U.S."^^xsd:string ;
@@ -327,6 +354,8 @@
     p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
 
 :OCC_17-3021_Entry a cco:ont00002037 ;
+    rdfs:label "OCC 17-3021 Entry"@en ;
+    skos:definition "The entry on row 220 of national_M2024_dl."@en ;
     cco:ont00001808 :OCC_role02 ;
     p2o:hasArea "99"^^xsd:string ;
     p2o:hasAreaTitle "U.S."^^xsd:string ;
