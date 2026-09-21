@@ -346,6 +346,15 @@
     rdfs:domain cco:ont00001043 ; #Aircraft
     rdfs:range xsd:string .
 
+<http://example.org/OntologyTradecraft/core/hasAAC> a owl:DatatypeProperty ;
+    rdfs:label "has AAC"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding Aircraft Approach Category (AAC) value."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("A" "B" "C" "D" "E") 
+        ] .
+
 <http://example.org/OntologyTradecraft/core/hasAACMinimum> a owl:DatatypeProperty ;
     rdfs:label "has AAC minimum"@en ;
     skos:definition "A datatype property that relates an aircraft to its corresponding minimum Aircraft Approach Category (AAC) value."@en ;
@@ -425,6 +434,12 @@
     rdfs:domain cco:ont00001043 ; #Aircraft
     rdfs:range xsd:integer .
 
+<http://example.org/OntologyTradecraft/core/hasMaximumAllowableLandingWeightInPounds> a owl:DatatypeProperty ;
+    rdfs:label "has maximum allowable landing weight in pounds"@en ;
+    skos:definition "A datatype property that relates an aircraft to its maximum allowable landing weight in pounds."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range xsd:integer .
+
 <http://example.org/OntologyTradecraft/core/hasMainGearConfiguration> a owl:DatatypeProperty ;
     rdfs:label "has main gear configuration"@en ;
     skos:definition "A datatype property that relates an aircraft to its main gear configuration, which describes the arrangement of the main landing gear."@en ;
@@ -447,6 +462,15 @@
     rdfs:range [ 
         a rdfs:Datatype ;
         owl:oneOf ("I" "II" "III" "IV" "V") 
+        ] .
+
+<http://example.org/OntologyTradecraft/core/hasTaxiwayDesignGroup> a owl:DatatypeProperty ;
+    rdfs:label "has taxiway design group"@en ;
+    skos:definition "A datatype property that relates an aircraft to its corresponding Taxiway Design Group (ADG) value, which categorizes the aircraft based on its combination of Main Gear Width and Cockpit to Main Gear Distance."@en ;
+    rdfs:domain cco:ont00001043 ; #Aircraft
+    rdfs:range [ 
+        a rdfs:Datatype ;
+        owl:oneOf ("1" "1A" "1B" "2" "2A" "2B" "3" "4" "5" "6") 
         ] .
 
 <http://example.org/OntologyTradecraft/core/hasParkingAreaInSquareFeet> a owl:DatatypeProperty ;

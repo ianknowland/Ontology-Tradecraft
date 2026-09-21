@@ -1,11 +1,12 @@
 @prefix : <http://example.org/OntologyTradecraft/instances/> .
-@prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix p2o: <http://example.org/OntologyTradecraft/core/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix string: <http://www.w3.org/2000/10/swap/string#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://example.org/OntologyTradecraft/instances/> a owl:Ontology ;
@@ -21,7 +22,7 @@
 :AirbusA320NSpecification a owl:NamedIndividual ,
     [ a owl:Restriction ;
       owl:onProperty cco:ont00001808 ;
-      owl:allValuesFrom [ owl:intersectionOf ( p2o:Jet 
+      owl:allValuesFrom [ owl:intersectionOf ( p2o:FixedWing 
         [ a owl:Restriction ;
             owl:onProperty bfo:BFO_0000178 ;
             owl:cardinality "2"^^xsd:nonNegativeInteger ;
@@ -55,6 +56,52 @@
     rdfs:label "Airbus A320 NEO"@en ;
     skos:definition "The individual jet specification for an Airbus A320 Neo."@en .
 
+:AirbusA320N_JetEngine_01 a cco:ont00000533 ;
+    rdfs:label "Jet Engine 01"@en ;
+    skos:definition "The first jet engine attached to Airbus A320 Neo 01."@en .
+
+
+:AirbusA320N_JetEngine_02 a cco:ont00000533 ;
+    rdfs:label "Jet Engine 02"@en ;
+    skos:definition "The second jet engine attached to Airbus A320 Neo 01."@en .
+
+:AirbusA320N_01 a p2o:FixedWing ;
+    rdfs:label "Airbus A320 Neo 01"@en ;
+    skos:definition "An instance of the Airbus A320 Neo that matches the artifact design."@en ;
+    bfo:BFO_0000178 :AirbusA320N_JetEngine_01 , :AirbusA320N_JetEngine_02 ;
+    cco:ont00001801 :AirbusA320NSpecification ;
+    p2o:hasICAOCode "A20N"^^xsd:string ;
+    p2o:hasFAADesignator "A20N"^^xsd:string ;
+    p2o:hasManufacturer :Airbus ;
+    p2o:hasModelFAA "Airbus A320 Neo"^^xsd:string ;
+    p2o:hasModelBADA "Airbus A320-271 N"^^xsd:string ;
+    p2o:hasAAC "C"^^xsd:string ;
+    p2o:hasAircraftDesignGroup "III"^^xsd:string ;
+    p2o:hasTaxiwayDesignGroup "3"^^xsd:string ;
+    p2o:hasApproachSpeedInKnots "137"^^xsd:integer ;
+    p2o:hasWingspanInFeetWithWingletsSharklets "117.5"^^xsd:decimal ;
+    p2o:hasLengthInFeet "123.3"^^xsd:decimal ;
+    p2o:hasTailHeightInFeet "39.6"^^xsd:decimal ;
+    p2o:hasWheelbaseInFeet "41.5"^^xsd:decimal ;
+    p2o:hasCockpitToMainGearDistanceInFeet "50.2"^^xsd:decimal ;
+    p2o:hasMainGearWidthInFeet "29.4"^^xsd:decimal ;
+    p2o:hasMaximumTakeoffGrossWeightInPounds "174165"^^xsd:integer ;
+    p2o:hasMaximumAllowableLandingWeightInPounds "148591"^^xsd:integer ;
+    p2o:hasMainGearConfiguration "D"^^xsd:string ;
+    p2o:hasICAOWeightTurbulenceCategory "Medium"^^xsd:string ;
+    p2o:hasParkingAreaInSquareFeet "16358.3"^^xsd:decimal ;
+    p2o:hasFAAWeightCategory "Large"^^xsd:string ;
+    p2o:hasConsolidatedWeightTurbulenceCategory "F"^^xsd:string ;
+    p2o:hasOneHalfWakeCategory "F"^^xsd:string ;
+    p2o:hasTwoWakeCategoryAppendixA "D"^^xsd:string ;
+    p2o:hasTwoWakeCategoryAppendixB "D"^^xsd:string ;
+    p2o:hasSRSCategory "III"^^xsd:string ;
+    p2o:hasLAHSOGroup "7"^^xsd:string ;
+    p2o:onFAARegistry "true"^^xsd:boolean ;
+    p2o:hasRegistrationCount "147"^^xsd:integer ;
+    p2o:hasNumberOfTMFSOperationsInFY24 "540276"^^xsd:integer ;
+    p2o:Remarks "AAC validated by Flight Standardization Board (FSB) report."@en .
+
 :Airbus a p2o:AircraftManufacturer ;
     rdfs:label "Airbus"@en ;
     skos:definition "A European aerospace corporation and manufacturer of aircraft and spacecraft in commercial, private, and military domains."@en .
@@ -73,7 +120,14 @@
         ]
     ] ;
     rdfs:label "Airbus A321-111"@en ;
-    skos:definition "The individual jet specification for an Airbus A321."@en .
+    skos:definition "The individual jet specification for an Airbus A321."@en ;
+    bfo:BFO_0000084 :AirbusA321SpecIBE .
+
+:AirbusA321SpecIBE a cco:ont00001298 ;
+    rdfs:label "Airbus A321 Specification IBE"@en ;
+    skos:definition "A material copy of the Airbus A321 Specification."@en ;
+    cco:ont00001769 "142"^^xsd:decimal ;
+    cco:ont00001863 cco:ont00001646 .
 
 :TestProcess01 a p2o:AircraftTestingProcess ;
     rdfs:label "Test Process 01"@en ;
@@ -137,6 +191,11 @@
 :ApproachSpeedField05 a cco:ont00001243 ;
     cco:ont00001863 cco:ont00001646 ;
     cco:ont00001765 "136"^^xsd:nonNegativeInteger .
+
+:TestReport01_IBE a cco:ont00000624 ;
+    rdfs:label "Test Report 01 IBE"@en ;
+    skos:definition "The material copy of Test Report 01."@en .
+
 :TestReport01 a cco:ont00000624 ;
     rdfs:label "Test Report 01"@en ;
     skos:definition "A report containing measurement data about the approach speed of multiple aircraft approaches."@en ;
