@@ -1,7 +1,7 @@
 @prefix : <http://example.org/OntologyTradecraft/core/> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
 @prefix dc11: <http://purl.org/dc/elements/1.1/> .
-@prefix bfo: <http://purl.obolibrary.org/obo/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -166,7 +166,7 @@
 <http://example.org/OntologyTradecraft/core/AerospaceEngineerRole> a owl:Class ;
     rdfs:label "Aerospace Engineer Role"@en ;
     skos:definition "A role that inheres in an agent and is realized in an Act of Aircraft Processing."@en ;
-    rdfs:subClassOf bfo:BFO_0000023 . #role
+    rdfs:subClassOf obo:BFO_0000023 . #role
 
 <http://example.org/OntologyTradecraft/core/ActOfAircraftProcessing> a owl:Class ;
     rdfs:label "Act of Aircraft Processing"@en ;
@@ -188,7 +188,7 @@
 <http://example.org/OntologyTradecraft/core/ManufacturerRole> a owl:Class ;
     rdfs:label "Manufacturer Role"@en ;
     skos:definition "A role that inheres in an agent and is realized in an Act of Manufacturing."@en ;
-    rdfs:subClassOf bfo:BFO_0000023 . #role
+    rdfs:subClassOf obo:BFO_0000023 . #role
     
 <http://example.org/OntologyTradecraft/core/AircraftSpecification> a owl:Class ;
     rdfs:label "Aircraft Specification"@en ;
@@ -259,7 +259,7 @@
             cco:ont00000443
             [ 
                 a owl:Restriction ;
-                owl:onProperty bfo:BFO_0000196 ; #bearer of
+                owl:onProperty obo:BFO_0000196 ; #bearer of
                 owl:someValuesFrom :ManufacturerRole 
             ]
             [ 
@@ -683,5 +683,5 @@
 <http://example.org/OntologyTradecraft/core/Remarks> a owl:AnnotationProperty ;
     rdfs:label "remarks"@en ;
     skos:definition "An annotation property that provides additional information or comments about an entity."@en ;
-    rdfs:domain bfo:BFO_0000001 ; #Entity
+    rdfs:domain obo:BFO_0000001 ; #Entity
     rdfs:range xsd:string .
