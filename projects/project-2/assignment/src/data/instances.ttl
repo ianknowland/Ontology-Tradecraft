@@ -75,7 +75,7 @@
     rdfs:label "Airbus A321-111"@en ;
     skos:definition "The individual jet specification for an Airbus A321."@en .
 
-:TestProcess01 a p2o:ActOfAircraftProcessing ;
+:TestProcess01 a p2o:AircraftTestingProcess ;
     rdfs:label "Test Process 01"@en ;
     skos:definition "An aircraft testing process that consisted of 5 aircraft approaches by one Airbus A321."@en .
 
@@ -236,10 +236,15 @@
     cco:ont00001841 :May2024-OEWS_EstimateProcess01 ;
     cco:ont00001832 :USGovernmentDomain .
 
+:AerospaceEngineerPopulation a cco:ont00000914 ;
+    rdfs:label "Aerospace Engineer Population"@en ;
+    skos:definition "The group of people that constitution the portion of the United States population that are Aerospace Engineers at any given time."@en ;
+    obo:BFO_0000176 :USPopulation .
+
 :OCC_17-2010_TotalEmployees01 a cco:ont00000539 ;
     rdfs:label "Total Employment"@en ;
-    skos:definition "A measurement of how many people were employed in the U.S. in May 2024."@en ;
-    p2o:hasTotalEmployees "" .
+    skos:definition "A measurement of how many Aerospace Engineers were employed in the U.S. in May 2024."@en ;
+    p2o:hasTotalEmployees "68440"^^xsd:integer .
 
 :May2024-OEWS_EstimateProcess01 a cco:ont00000345 ;
     rdfs:label "May 2024 OEWS Estimate"@en ;
@@ -279,18 +284,18 @@
     p2o:hasTotalEmployees "68,440"^^xsd:integer ;
     p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
-    p2o:hasMeanAnnualWage "141,180"^^xsd:integer ;
+    p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
     p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
     p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
     p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
     p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
     p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
     p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
-    p2o:hasAnnual10thPercentileWage "85,350"^^xsd:integer ;
-    p2o:hasAnnual25thPercentileWage "104,740"^^xsd:integer ;
-    p2o:hasMedianAnnualWage "134,830"^^xsd:integer ;
-    p2o:hasAnnual75thPercentileWage "174,480"^^xsd:integer ;
-    p2o:hasAnnual90thPercentileWage "205,850"^^xsd:integer .
+    p2o:hasAnnual10thPercentileWage "85350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
 
 :OCC_17-2011_Entry a cco:ont00002037 ;
     cco:ont00001808 :OCC_role01 ;
@@ -308,18 +313,18 @@
     p2o:hasTotalEmployees "68,440"^^xsd:integer ;
     p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
-    p2o:hasMeanAnnualWage "141,180"^^xsd:integer ;
+    p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
     p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
     p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
     p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
     p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
     p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
     p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
-    p2o:hasAnnual10thPercentileWage "85,350"^^xsd:integer ;
-    p2o:hasAnnual25thPercentileWage "104,740"^^xsd:integer ;
-    p2o:hasMedianAnnualWage "134,830"^^xsd:integer ;
-    p2o:hasAnnual75thPercentileWage "174,480"^^xsd:integer ;
-    p2o:hasAnnual90thPercentileWage "205,850"^^xsd:integer .
+    p2o:hasAnnual10thPercentileWage "85350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205850"^^xsd:integer .
 
 :OCC_17-3021_Entry a cco:ont00002037 ;
     cco:ont00001808 :OCC_role02 ;
@@ -344,8 +349,8 @@
     p2o:hasMedianHourlyWage "38.38"^^xsd:decimal ;
     p2o:hasHourly75thPercentileWage "49.14"^^xsd:decimal ;
     p2o:hasHourly90thPercentileWage "57.91"^^xsd:decimal ;
-    p2o:hasAnnual10thPercentileWage "53,730"^^xsd:integer ;
-    p2o:hasAnnual25thPercentileWage "64,570"^^xsd:integer ;
-    p2o:hasMedianAnnualWage "79,830"^^xsd:integer ;
-    p2o:hasAnnual75thPercentileWage "102,220"^^xsd:integer ;
-    p2o:hasAnnual90thPercentileWage "120,440"^^xsd:integer .
+    p2o:hasAnnual10thPercentileWage "53730"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "64570"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "79830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "102220"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "120440"^^xsd:integer .

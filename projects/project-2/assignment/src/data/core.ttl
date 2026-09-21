@@ -202,7 +202,7 @@
 <http://example.org/OntologyTradecraft/core/Jet> a owl:Class ;
     rdfs:label "Jet"@en ;
     skos:definition "A Fixed Wing Aircraft that is powered by one or more jet engines."@en ;
-    rdfs:subClassOf :FixedWingAircraft . 
+    rdfs:subClassOf :FixedWing . 
 
 <http://example.org/OntologyTradecraft/core/AircraftApproachCategory> a owl:Class ;
     rdfs:label "Aircraft Approach Category"@en ;
@@ -227,6 +227,11 @@
     rdfs:label "Act of Aircraft Processing"@en ;
     skos:definition "An Act of Artifact Processing in which an aircraft is designed, constructed, or tested."@en ;
     rdfs:subClassOf cco:ont00000908 . #Act of Artifact Processing
+
+<http://example.org/OntologyTradecraft/core/AircraftTestingProcess> a owl:Class ;
+    rdfs:label "Test Process"@en ;
+    skos:definition "An Act of Aircraft Processing in which an aircraft is tested."@en ;
+    rdfs:subClassOf :ActOfAircraftProcessing .
 
 <http://example.org/OntologyTradecraft/core/ActOfAircraftDesign> a owl:Class ;
     rdfs:label "Act of Aircraft Design"@en ;
@@ -276,15 +281,18 @@
     rdfs:subClassOf cco:ont00000636 .
 
 <http://example.org/OntologyTradecraft/core/AerospaceEngineerRole> a owl:Class ;
-    skos:definition "An Occupation Role that inheres in an Agent who is responsible for designing, constructing, and testing aircraft, missiles, and spacecraft." ;
+    rdfs:label "Aerospace Engineer Role"@en ;
+    skos:definition "An Occupation Role that inheres in an Agent who is responsible for designing, constructing, and testing aircraft, missiles, and spacecraft."@en ;
     rdfs:subClassOf cco:ont00000984 .
 
 <http://example.org/OntologyTradecraft/core/AerospaceOperationsTechnologistRole> a owl:Class ;
+    rdfs:label "Aerospace Operations Technologist Role"@en ;
     skos:definition "An Aerospace Engineer Role that inheres in an Agent who is responsible for operating instruments and equipment aboard air and space vehicles." ;
     rdfs:subClassOf :AerospaceEngineerRole .
 
 <http://example.org/OntologyTradecraft/core/AerospaceTechnicianRole> a owl:Class ;
-    skos:defintion "An Aerospace Engineer Role that inheres in an Agent who is responsible for installing, adjusting and maintaining instruments and equipment aboard air and space vehicles." ;
+    rdfs:label "Aerospace Technician Role"@en ;
+    skos:definition "An Aerospace Engineer Role that inheres in an Agent who is responsible for installing, adjusting and maintaining instruments and equipment aboard air and space vehicles." ;
     rdfs:subClassOf :AerospaceEngineerRole .
 
 
