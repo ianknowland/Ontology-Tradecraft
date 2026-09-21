@@ -1,7 +1,10 @@
 @prefix : <http://example.org/OntologyTradecraft/core/> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix http: <http://www.w3.org/2011/http#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -11,6 +14,150 @@
     owl:imports <http://purl.obolibrary.org/obo/bfo.owl> ;
     rdfs:comment "This ontology is a core ontology for Ontology Tradecraft Project 2." ;
     rdfs:label "Ontology Tradecraft Aircraft Core Ontology" .
+
+#=======================
+# BFO/CCO Classes
+#=======================
+
+<https://www.commoncoreontologies.org/ont00000319> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000965> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001942> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000995>
+                                                                   ] ;
+                                                   rdfs:label "Artifact Design"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Prescriptive Information Content Entity that is a specification of an object, manifested by an agent, intended to accomplish goals, in a particular environment, using a set of primitive components, satisfying a set of requirements, subject to constraints."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Design&oldid=1063941625"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+<https://www.commoncoreontologies.org/ont00000533> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000056> ;
+                                                   rdfs:label "Jet Engine"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Reaction Engine that discharges a fast moving jet that generates Thrust by jet propulsion."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#scopeNote> "Some (most) jet engines utilize turbines, but some do not. Most rocket engines do not utilize turbines, but some do."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Jet_engine&oldid=1060157063"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+<http://purl.obolibrary.org/obo/BFO_0000178> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000002> ;
+                                             rdfs:range <http://purl.obolibrary.org/obo/BFO_0000002> ;
+                                             dc11:identifier "271-BFO" ;
+                                             rdfs:label "has continuant part"@en ;
+                                             skos:definition "b has continuant part c =Def c continuant part of b"@en ;
+                                             skos:scopeNote "Users that require more sophisticated representations of time are encouraged to import a temporal extension of BFO-Core provided by the BFO development team. See documentation for guidance: <https://github.com/BFO-ontology/BFO-2020/tree/master/src/owl/profiles/temporal%20extensions>"@en .
+
+<https://www.commoncoreontologies.org/ont00001808> rdf:type owl:ObjectProperty ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000958> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+                                                   rdfs:label "is about"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is_about y is a primitive relationship between an instance of Information Content Entity x and an instance of Entity y."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "http://purl.obolibrary.org/obo/IAO_0000136" .
+   
+<http://purl.obolibrary.org/obo/BFO_0000139> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000132> ;
+                                             rdf:type owl:TransitiveProperty ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000003> ;
+                                             rdfs:range <http://purl.obolibrary.org/obo/BFO_0000003> ;
+                                             dc11:identifier "078-BFO" ;
+                                             rdfs:label "temporal part of"@en ;
+                                             skos:definition "b temporal part of c =Def b occurrent part of c & (b and c are temporal regions) or (b and c are spatiotemporal regions & b temporally projects onto an occurrent part of the temporal region that c temporally projects onto) or (b and c are processes or process boundaries & b occupies a temporal region that is an occurrent part of the temporal region that c occupies)"@en ;
+                                             skos:example "Your heart beating from 4pm to 5pm today is a temporal part of the process of your heart beating; the 4th year of your life is a temporal part of your life, as is the process boundary which separates the 3rd and 4th years of your life; the first quarter of a game of football is a temporal part of the whole game"@en .
+
+<https://www.commoncoreontologies.org/ont00001961> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000084> ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000120> ;
+                                                   rdfs:range <https://www.commoncoreontologies.org/ont00000253> ;
+                                                   rdfs:label "is measurement unit of"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is_measurement_unit_of y iff y is an instance of Information Bearing Entity and x is an instance of Measurement Unit, such that x describes the magnitude of measured physical quantity mentioned in y."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+<https://www.commoncoreontologies.org/ont00001942> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <https://www.commoncoreontologies.org/ont00001808> ;
+                                                   rdfs:domain <https://www.commoncoreontologies.org/ont00000965> ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000001> ;
+                                                   rdfs:label "prescribes"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x prescribes y iff x is an instance of Information Content Entity and y is an instance of Entity, such that x serves as a rule or guide for y if y an Occurrent, or x serves as a model for y if y is a Continuant."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "A blueprint prescribes some artifact or facility by being a model for it." ,
+                                                                                                 "A professional code of conduct prescribes some realizations of a profession (role) by giving rules for how the bearer should act in those realizations." ,
+                                                                                                 "An operations plan prescribes an operation by enumerating the tasks that need to be performed in order to achieve the objectives of the operation." ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+<https://www.commoncoreontologies.org/ont00000120> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000853> ;
+                                                   rdfs:label "Measurement Unit"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Descriptive Information Content Entity that describes a definite magnitude of a physical quantity, defined and adopted by convention and/or by law, that is used as a standard for measurement of the same physical quantity."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Unit_of_measurement&oldid=1061038125"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/InformationEntityOntology"^^xsd:anyURI .
+
+<http://purl.obolibrary.org/obo/BFO_0000055> rdf:type owl:ObjectProperty ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000015> ;
+                                             rdfs:range <http://purl.obolibrary.org/obo/BFO_0000017> ;
+                                             dc11:identifier "059-BFO" ;
+                                             rdfs:label "realizes"@en ;
+                                             skos:definition "(Elucidation) realizes is a relation between a process b and realizable entity c such that c inheres in some d & for all t, if b has participant d then c exists & the type instantiated by b is correlated with the type instantiated by c"@en ;
+                                             skos:example "A balding process realizes a disposition to go bald; a studying process realizes a student role; a process of pumping blood realizes the pumping function of a heart"@en .
+
+<https://www.commoncoreontologies.org/ont00001816> rdf:type owl:ObjectProperty ;
+                                                   rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000056> ;
+                                                   owl:inverseOf <https://www.commoncoreontologies.org/ont00001986> ;
+                                                   rdfs:domain [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( <http://purl.obolibrary.org/obo/BFO_0000020>
+                                                                               <http://purl.obolibrary.org/obo/BFO_0000031>
+                                                                               [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000004>
+                                                                                                      [ rdf:type owl:Class ;
+                                                                                                        owl:complementOf <http://purl.obolibrary.org/obo/BFO_0000006>
+                                                                                                      ]
+                                                                                                    ) ;
+                                                                                 rdf:type owl:Class
+                                                                               ]
+                                                                             )
+                                                               ] ;
+                                                   rdfs:range <http://purl.obolibrary.org/obo/BFO_0000015> ;
+                                                   rdfs:label "is output of"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "x is output of y =Def x participates in y, x is an Independent Continuant (but not a Spatial Region), y is a Process, and the presence of x at the end of y is a necessary condition for the completion of y."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ExtendedRelationOntology"^^xsd:anyURI .
+
+<https://www.commoncoreontologies.org/ont00000319> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000965> ,
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <https://www.commoncoreontologies.org/ont00001942> ;
+                                                                     owl:someValuesFrom <https://www.commoncoreontologies.org/ont00000995>
+                                                                   ] ;
+                                                   rdfs:label "Artifact Design"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Prescriptive Information Content Entity that is a specification of an object, manifested by an agent, intended to accomplish goals, in a particular environment, using a set of primitive components, satisfying a set of requirements, subject to constraints."@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001754> "https://en.wikipedia.org/w/index.php?title=Design&oldid=1063941625"^^xsd:anyURI ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/ArtifactOntology"^^xsd:anyURI .
+
+<http://purl.obolibrary.org/obo/BFO_0000197> rdf:type owl:ObjectProperty ;
+                                             rdfs:subPropertyOf <http://purl.obolibrary.org/obo/BFO_0000195> ;
+                                             rdfs:domain <http://purl.obolibrary.org/obo/BFO_0000020> ;
+                                             rdfs:range [ owl:intersectionOf ( <http://purl.obolibrary.org/obo/BFO_0000004>
+                                                                               [ rdf:type owl:Class ;
+                                                                                 owl:complementOf <http://purl.obolibrary.org/obo/BFO_0000006>
+                                                                               ]
+                                                                             ) ;
+                                                          rdf:type owl:Class
+                                                        ] ;
+                                             dc11:identifier "051-BFO" ;
+                                             rdfs:label "inheres in"@en ;
+                                             skos:definition "b inheres in c =Def b is a specifically dependent continuant & c is an independent continuant that is not a spatial region & b specifically depends on c"@en ;
+                                             skos:example "A shape inheres in a shaped object; a mass inheres in a material entity"@en .
+
+<http://purl.obolibrary.org/obo/BFO_0000019> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://purl.obolibrary.org/obo/BFO_0000020> ;
+                                             dc11:identifier "055-BFO" ;
+                                             rdfs:label "quality"@en ;
+                                             skos:definition "(Elucidation) A quality is a specifically dependent continuant that, in contrast to roles and dispositions, does not require any further process in order to be realized"@en ;
+                                             skos:example "The colour of a tomato; the ambient temperature of this portion of air; the length of the circumference of your waist; the shape of your nose; the shape of your nostril; the mass of this piece of gold"@en .
+
+<https://www.commoncoreontologies.org/ont00000345> rdf:type owl:Class ;
+                                                   rdfs:subClassOf <https://www.commoncoreontologies.org/ont00000228> ;
+                                                   rdfs:label "Act of Measuring"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#definition> "A Planned Act that involves determining the extent, dimensions, quanity, or quality of an Entity relative to some standard."@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#example> "putting an object on a scale to measure its weight in kilograms" ,
+                                                                                                 "rating Hollywood movies on a 1 to 5 star scale" ,
+                                                                                                 "using a tape measure to determine the height and width of a doorway in inches" ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
 
 #=======================
 # Classes
@@ -118,10 +265,9 @@
         ) 
     ] .
 
-<http://example.org/OntologyTradecraft/core/FixedWingAircraft> a owl:Class ;
-    rdfs:label "Fixed Wing Aircraft"@en ;
-    skos:altLabel "Fixed Wing"@en ;
-    skos:definition "An Aircraft that generates lift primarily through the use of fixed wings."@en ;
+<http://example.org/OntologyTradecraft/core/FixedWing> a owl:Class ;
+    rdfs:label "Fixed Wing"@en ;
+    skos:definition "An Aircraft that generates lift primarily through the use of stationary wings."@en ;
     rdfs:subClassOf cco:ont00001043 . #Aircraft
 
 <http://example.org/OntologyTradecraft/core/AdapabilityEvaluation> a owl:Class ;
@@ -394,7 +540,109 @@
     rdfs:domain :AircraftSpecification ;
     rdfs:range xsd:date .
 
+<http://example.org/OntologyTradecraft/core/hasArea> a owl:DatatypeProperty ;
+    rdfs:label "has area"@en ;
+    skos:definition "A datatype property that relates an information content entity to a code denoting some geospatial region."@en .
 
+<http://example.org/OntologyTradecraft/core/hasOGroup> a owl:DatatypeProperty ;
+    rdfs:label "o group"@en ;
+    skos:definition "A datatype property that relates an information content entity to string denoting a SOC occupational level."@en .
+
+<http://example.org/OntologyTradecraft/core/hasOwnCode> a owl:DatatypeProperty ;
+    rdfs:label "own code"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the organization type(s) with ownership over the occupation code."@en .
+
+<http://example.org/OntologyTradecraft/core/hasOCCCode> a owl:DatatypeProperty ;
+    rdfs:label "has occupation code"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an occupation code."@en .
+
+<http://example.org/OntologyTradecraft/core/hasOCCTitle> a owl:DatatypeProperty ;
+    rdfs:label "has occupation title"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an occupation title."@en .
+
+<http://example.org/OntologyTradecraft/core/hasAreaTitle> a owl:DatatypeProperty ; 
+    rdfs:label "has area title"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the name of an area."@en .
+
+<http://example.org/OntologyTradecraft/core/hasAreaType> a owl:DatatypeProperty ;
+    rdfs:label "has area type"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an area type."@en .
+
+<http://example.org/OntologyTradecraft/core/hasPrimaryState> a owl:DatatypeProperty ;
+    rdfs:label "has primary state"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting either a specific U.S. state or the nation as a whole."@en .
+
+<http://example.org/OntologyTradecraft/core/hasNAICSCode> a owl:DatatypeProperty ;
+    rdfs:label "has NAICS code"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the North American Industry Classification System (NAICS) code for a given industry."@en .
+
+<http://example.org/OntologyTradecraft/core/hasNAICSTitle> a owl:DatatypeProperty ;
+    rdfs:label "has NAICS title"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the title of an NAICS code."@en .
+
+<http://example.org/OntologyTradecraft/core/hasIGroup> a owl:DatatypeProperty ;
+    rdfs:label "has industry group"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an industry level."@en .
+
+<http://example.org/OntologyTradecraft/core/hasTotalEmployees> a owl:DatatypeProperty ;
+    rdfs:label "has total employees"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the total estimated employees in an occupation."@en .
+
+<http://example.org/OntologyTradecraft/core/hasEmploymentPRSE> a owl:DatatypeProperty ;
+    rdfs:label "has employment PRSE"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the percent relative standard error (PRSE) for an employment estimate."@en .
+
+<http://example.org/OntologyTradecraft/core/hasMeanHourlyWage> a owl:DatatypeProperty ;
+    rdfs:label "has mean hourly wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting a mean hourly wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasMeanAnnualWage> a owl:DatatypeProperty ;
+    rdfs:label "has mean annual wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting a mean annual wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasMeanPRSE> a owl:DatatypeProperty ;
+    rdfs:label "has mean PRSE"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting the percent relative standard error (PRSE) for a mean wage estimate."@en .
+
+<http://example.org/OntologyTradecraft/core/hasHourly10thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 10th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an hourly 10th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasHourly25thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 25h percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an hourly 25th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasMedianHourlyWage> a owl:DatatypeProperty ;
+    rdfs:label "has median hourly wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an hourly 50th percentile (or median) wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasHourly75thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 75th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an hourly 75th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasHourly90thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 90th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an hourly 90th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasAnnual10thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 10th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an annual 10th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasAnnual25thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 25th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an annual 25th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasMedianAnnualWage> a owl:DatatypeProperty ;
+    rdfs:label "has median annual wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an annual 50th percentile (or median) wage."@en .
+    
+<http://example.org/OntologyTradecraft/core/hasAnnual75thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 75th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an annual 75th percentile wage."@en .
+
+<http://example.org/OntologyTradecraft/core/hasAnnual90thPercentileWage> a owl:DatatypeProperty ;
+    rdfs:label "has hourly 90th percentile wage"@en ;
+    skos:definition "A datatype property that relates an information content entity to a string denoting an annual 90th percentile wage."@en .
 
 #=======================
 # Annotation Properties

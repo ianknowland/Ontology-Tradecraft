@@ -1,6 +1,5 @@
 @prefix : <http://example.org/OntologyTradecraft/instances/> .
 @prefix cco: <https://www.commoncoreontologies.org/> .
-@prefix http: <http://www.w3.org/2011/http#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix p2o: <http://example.org/OntologyTradecraft/core/> .
@@ -46,7 +45,7 @@
             owl:hasValue "Airbus A320 NEO"^^xsd:string
         ]
         [ a owl:Restriction ;
-            owl:onProperty p2o:hasTailHeightAtOEWInFeet ;
+            owl:onProperty p2o:hasTailHeightInFeet ;
             owl:hasValue "39.6"^^xsd:decimal
         ]
         ) ;
@@ -73,30 +72,54 @@
         ) ;
         ]
     ] ;
-    rdfs:label "Airbus A321-111 Specification"@en ;
+    rdfs:label "Airbus A321-111"@en ;
     skos:definition "The individual jet specification for an Airbus A321."@en .
 
-:TestProcess01 a p2o:ActOfAircraftProcessing .
+:TestProcess01 a p2o:ActOfAircraftProcessing ;
+    rdfs:label "Test Process 01"@en ;
+    skos:definition "An aircraft testing process that consisted of 5 aircraft approaches by one Airbus A321."@en .
 
 :Aircraft01 a p2o:Jet ;
+    rdfs:label "Aircraft 01"@en ;
+    skos:definition "The Airbus A321 used in Test Process 01."@en ;
     cco:ont00001920 :AirbusA321Specification .
 
 :TemporalRegion01 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 01"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 01."@en ;
     obo:BFO_0000063 :TemporalRegion02 .
 
 :TemporalRegion02 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 02"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 02."@en ;
     obo:BFO_0000063 :TemporalRegion03 .
 :TemporalRegion03 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 03"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 03."@en ;
     obo:BFO_0000063 :TemporalRegion04 .
 :TemporalRegion04 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 04"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 04."@en ;
     obo:BFO_0000063 :TemporalRegion05 .
-:TemporalRegion05 a obo:BFO_0000008 .
+:TemporalRegion05 a obo:BFO_0000008 ;
+    rdfs:label "Temporal Region 05"@en ;
+    skos:definition "The temporal region occupied by Aircraft Approach 05."@en .
 
-:ApproachSpeed01 a cco:ont00000830 .
-:ApproachSpeed02 a cco:ont00000830 .
-:ApproachSpeed03 a cco:ont00000830 .
-:ApproachSpeed04 a cco:ont00000830 .
-:ApproachSpeed05 a cco:ont00000830 .
+:ApproachSpeed01 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 01"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 01."@en .
+:ApproachSpeed02 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 02"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 02."@en .
+:ApproachSpeed03 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 03"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 03."@en .
+:ApproachSpeed04 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 04"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 04."@en .
+:ApproachSpeed05 a cco:ont00000830 ;
+    rdfs:label "Approach Speed 05"@en ;
+    skos:definition "The speed measured by Approach Speed Measurement 05."@en .
 
 :ApproachSpeedField01 a cco:ont00001243 ;
     cco:ont00001863 cco:ont00001646 ;
@@ -170,5 +193,159 @@
     obo:BFO_0000117 :ApproachSpeed05 ;
     obo:BFO_0000057 :Aircraft01 .
 
-## Task 4
+## Task 3
+:SOC_Document01 a cco:ont00002042 ;
+    rdfs:label "Structure 2018"@en ;
+    skos:definition "The Standard Occupational Classification document from 2018, created by the U.S. Bureau of Labor Statistics."@en ;
+    obo:BFO_0000178 :SOC_17-2010_Entry ;
+    obo:BFO_0000178 :SOC_17-2011_Entry ;
+    obo:BFO_0000178 :SOC_17-3021_Entry .
 
+:SOC_17-2010_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-2010"@en ;
+    rdfs:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en ;
+    rdfs:comment "Has same definition as the detailed entry, since the broad entry has none."@en ;
+    cco:ont00001808 p2o:AerospaceEngineerRole ;
+    p2o:hasOGroup "Broad"^^xsd:string ;
+    p2o:hasOCCCode "17-2010"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string .
+
+:SOC_17-2011_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-2011"@en ;
+    skos:definition "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture. May recommend improvements in testing equipment and techniques."@en ;
+    p2o:hasOGroup "Detailed"^^xsd:string ;
+    p2o:hasOCCCode "17-2011"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string .
+
+:SOC_17-3021_Entry a cco:ont00002037 ;
+    rdfs:label "SOC 17-3021"@en ;
+    skos:definition "Operate, install, adjust, and maintain integrated computer/communications systems, consoles, simulators, and other data acquisition, test, and measurement instruments and equipment, which are used to launch, track, position, and evaluate air and space vehicles. May record and interpret test data."@en ;
+    p2o:hasOGroup "Detailed"^^xsd:string ;
+    p2o:hasOCCCode "17-3021"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians"^^xsd:string .
+
+## Task 4
+:USGovernmentDomain a cco:ont00001152 ;
+    rdfs:label "US Government Domain"@en ;
+    skos:altLabel "U.S." ;
+    skos:definition "The location of some member of the US Population." .
+
+:USPopulation a cco:ont00000141 ;
+    rdfs:label "US Population"@en ;
+    skos:definition "The group of people that constitute the population of the United States at any given time."@en ;
+    cco:ont00001841 :May2024-OEWS_EstimateProcess01 ;
+    cco:ont00001832 :USGovernmentDomain .
+
+:OCC_17-2010_TotalEmployees01 a cco:ont00000539 ;
+    rdfs:label "Total Employment"@en ;
+    skos:definition "A measurement of how many people were employed in the U.S. in May 2024."@en ;
+    p2o:hasTotalEmployees "" .
+
+:May2024-OEWS_EstimateProcess01 a cco:ont00000345 ;
+    rdfs:label "May 2024 OEWS Estimate"@en ;
+    skos:definition "The Occupational Employment and Wage Statistics survey that took place in May 2024."@en ;
+    cco:ont00001986 :OCC_WageDocument01 .
+
+:OCC_role01 a p2o:AerospaceEngineerRole ;
+    rdfs:label "OCC Role 01"@en ;
+    skos:definition "An instance of an Aerospace Engineer Role for modeling purposes."@en .
+
+:OCC_role02 a [ a owl:Class ;
+            owl:unionOf ( p2o:AerospaceOperationsTechnologistRole
+                          p2o:AerospaceTechnicianRole )
+          ] ;
+    rdfs:label "OCC Role 02"@en ;
+    skos:definition "An instance of a combined for modeling purposes."@en .
+
+:OCC_WageDocument01 a cco:ont00002042 ;
+    rdfs:label "national_M2024_dl" ;
+    obo:BFO_0000178 :OCC_17-2010_Entry ;
+    obo:BFO_0000178 :OCC_17-2011_Entry ;
+    obo:BFO_0000178 :OCC_17-3021_Entry .
+
+:OCC_17-2010_Entry a cco:ont00002037 ;
+    cco:ont00001808 :OCC_role01 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-2010"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
+    p2o:hasOGroup "broad"^^xsd:string ;
+    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "141,180"^^xsd:integer ;
+    p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "85,350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104,740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134,830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174,480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205,850"^^xsd:integer .
+
+:OCC_17-2011_Entry a cco:ont00002037 ;
+    cco:ont00001808 :OCC_role01 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-2011"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
+    p2o:hasOGroup "detailed"^^xsd:string ;
+    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "141,180"^^xsd:integer ;
+    p2o:hasMeanPRSE "0.8"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "41.04"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "50.36"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "64.82"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "83.88"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "98.97"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "85,350"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "104,740"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "134,830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "174,480"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "205,850"^^xsd:integer .
+
+:OCC_17-3021_Entry a cco:ont00002037 ;
+    cco:ont00001808 :OCC_role02 ;
+    p2o:hasArea "99"^^xsd:string ;
+    p2o:hasAreaTitle "U.S."^^xsd:string ;
+    p2o:hasAreaType "1"^^xsd:string ;
+    p2o:hasPrimaryState "US"^^xsd:string ;
+    p2o:hasNAICSCode "000000"^^xsd:string ;
+    p2o:hasNAICSTitle "Cross-industry"^^xsd:string ;
+    p2o:hasIGroup "cross-industry"^^xsd:string ;
+    p2o:hasOwnCode "1235"^^xsd:string ;
+    p2o:hasOCCCode "17-3021"^^xsd:string ;
+    p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians"^^xsd:string ;
+    p2o:hasOGroup "detailed"^^xsd:string ;
+    p2o:hasTotalEmployees "9,060"^^xsd:integer ;
+    p2o:hasEmploymentPRSE "4.3"^^xsd:decimal ;
+    p2o:hasMeanHourlyWage "41.50"^^xsd:decimal ;
+    p2o:hasMeanAnnualWage "86,330"^^xsd:integer ;
+    p2o:hasMeanPRSE "1.4"^^xsd:decimal ;
+    p2o:hasHourly10thPercentileWage "25.83"^^xsd:decimal ;
+    p2o:hasHourly25thPercentileWage "31.04"^^xsd:decimal ;
+    p2o:hasMedianHourlyWage "38.38"^^xsd:decimal ;
+    p2o:hasHourly75thPercentileWage "49.14"^^xsd:decimal ;
+    p2o:hasHourly90thPercentileWage "57.91"^^xsd:decimal ;
+    p2o:hasAnnual10thPercentileWage "53,730"^^xsd:integer ;
+    p2o:hasAnnual25thPercentileWage "64,570"^^xsd:integer ;
+    p2o:hasMedianAnnualWage "79,830"^^xsd:integer ;
+    p2o:hasAnnual75thPercentileWage "102,220"^^xsd:integer ;
+    p2o:hasAnnual90thPercentileWage "120,440"^^xsd:integer .
