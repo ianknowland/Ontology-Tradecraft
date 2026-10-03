@@ -157,6 +157,12 @@
                                                                                                  "rating Hollywood movies on a 1 to 5 star scale" ,
                                                                                                  "using a tape measure to determine the height and width of a doorway in inches" ;
                                                    <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/EventOntology"^^xsd:anyURI .
+<https://www.commoncoreontologies.org/ont00001646> rdf:type owl:NamedIndividual ,
+                                                            <https://www.commoncoreontologies.org/ont00000969> ;
+                                                   rdfs:label "Knot Measurement Unit"@en ;
+                                                   <http://www.w3.org/2004/02/skos/core#altLabel> "kn"@en ;
+                                                   <https://www.commoncoreontologies.org/ont00001760> "https://www.commoncoreontologies.org/UnitsOfMeasureOntology"^^xsd:anyURI .
+
 
 #=======================
 # Classes
