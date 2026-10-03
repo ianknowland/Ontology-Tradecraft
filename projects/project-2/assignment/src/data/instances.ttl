@@ -364,7 +364,7 @@
     p2o:hasOCCCode "17-2010"^^xsd:string ;
     p2o:hasOCCTitle "Aerospace Engineers"^^xsd:string ;
     p2o:hasOGroup "broad"^^xsd:string ;
-    p2o:hasTotalEmployees "68,440"^^xsd:integer ;
+    p2o:hasTotalEmployees "68440"^^xsd:integer ;
     p2o:hasEmploymentPRSE "2.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "67.88"^^xsd:decimal ;
     p2o:hasMeanAnnualWage "141180"^^xsd:integer ;
@@ -426,7 +426,7 @@
     p2o:hasOCCCode "17-3021"^^xsd:string ;
     p2o:hasOCCTitle "Aerospace Engineering and Operations Technologists and Technicians"^^xsd:string ;
     p2o:hasOGroup "detailed"^^xsd:string ;
-    p2o:hasTotalEmployees "9,060"^^xsd:integer ;
+    p2o:hasTotalEmployees "9060"^^xsd:integer ;
     p2o:hasEmploymentPRSE "4.3"^^xsd:decimal ;
     p2o:hasMeanHourlyWage "41.50"^^xsd:decimal ;
     p2o:hasMeanAnnualWage "86330"^^xsd:integer ;
